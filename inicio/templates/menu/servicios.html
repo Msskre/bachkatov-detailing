@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BACHKATOV Detailing Premium</title>
+    <link rel="stylesheet" href="{% static 'inicio/css/styles.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="header-section logo-img">
+            <a href="/">
+                <img src="{% static 'inicio/img/logo.detailing.png' %}" alt="Logo" />
+            </a>
+        </div>
+        <a href="/" class="header-section logo-text">Bachkatov Detailing</a>
+        <nav class="header-section nav">
+            <a href="/">Inicio</a>
+            <a href="{% url 'servicios' %}">Servicios</a>
+            <a href="{% url 'galeria' %}">Galería</a>
+            <a href="/#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="seccion-servicios fade-in">
+    
+        <div class="servicio-card">
+            <h3><strong>Detailing Exterior</strong></h3>
+            <p><em>El detailing exterior es una técnica de limpieza y acondicionamiento avanzado de la carrocería del vehículo. Va más allá de un lavado común:</em></p>
+            <strong>
+                <p>- Prelavado con shampoo y/o APC</p>
+                <p>- Descontaminación de pintura</p>
+                <p>- Descontaminación férrica en llantas</p>
+                <p>- Limpieza de llantas con cepillos y brochas</p>
+                <p>- Limpieza de paso de rueda</p>
+                <p>- Limpieza de detalles: insignias, marcos, logos, zonas bajas</p>
+                <p>- Hidratación de plasticos exteriores y protección UV</p>
+            </strong>
+            <p><em>El resultado es un brillo profundo, tacto suave y una pintura protegida del desgaste ambiental.</em></p>
+        </div>
+    
+        <div class="servicio-card">
+            <h3><strong>Detailing Interior</strong></h3>
+            <p><em>El detailing interior es un proceso profundo de limpieza, restauración y protección de todas las superficies del interior del vehículo. Incluye:</em></p>
+            <strong>
+            <p>- Aspirado completo + boquillas</p>
+            <p>- Uso de brochas para limpieza de plasticos</p>
+            <p>- Soltar y levantar polvo con taladro (Punta de cepillo)</p>
+            <p>- Limpieza de alfombras</p>
+            <p>- Limpieza de tapizados con APC</p>
+            <p>- Descontaminación de plásticos</p>
+            <p>- Hidratación de plásticos con acondicionador</p>
+            <p>- Uso de esponjas de microfibra</p>
+            <p>- Limpieza de detalles: costuras, botones, zonas difíciles</p>
+            <p>- Asientos de cuero: limpieza + acondicionador</p>
+            </strong>
+            <p><em>Este servicio elimina suciedad acumulada, malos olores y devuelve el confort y frescura originales del habitáculo.</em></p>
+        </div>
+    
+        <div class="servicio-card">
+            <h3><strong>Lavado Básico</strong></h3>
+            <p><em>Ideal para mantener tu auto en buen estado de forma rápida:</em></p>
+            <strong>
+            <p>- Lavado exterior a mano con productos neutros</p>
+            <p>- Limpieza de llantas</p>
+            <p>- Limpieza de vidrios</p>
+            <p>- Secado con microfibra</p>
+            <p>- Aspirado superficial del interior</p>
+            <p>- Limpieza de polvo superficial del interior</p>
+            </strong>
+            <p><em>Es un servicio rápido, seguro y eficaz para quienes desean mantener su auto en buen estado sin necesidad de un tratamiento profundo.</em></p>
+        </div>
+    </section>
+    
+
+    <footer class="footer fade-in">
+        <p>© 2025 Bachkatov Detailing | Todos los derechos reservados | El arte del detailing.</p>
+        <br>
+        <p>Diseñado por Dimitri Bachkatov</p>
+        <a href="https://www.instagram.com/d.n.b.d_/?hl=es-la" target="_blank" aria-label="Instagram">
+            <img src="{% static 'inicio/img/instagram_icon.png' %}" alt="Instagram" class="instagram-img">
+        </a>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faders = document.querySelectorAll('.fade-in');
+    
+            const appearOptions = {
+                threshold: 0.2
+            };
+    
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+    
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        });
+    </script>
+     
+</body>
+</html>

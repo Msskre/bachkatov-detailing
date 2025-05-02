@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BACHKATOV Detailing Premium</title>
+    <link rel="stylesheet" href="{% static 'inicio/css/styles.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="header-section logo-img">
+            <a href="/">
+                <img src="{% static 'inicio/img/logo.detailing.png' %}" alt="Logo" />
+            </a>
+        </div>
+        <a href="/" class="header-section logo-text">Bachkatov Detailing</a>
+        <nav class="header-section nav">
+            <a href="/">Inicio</a>
+            <a href="{% url 'servicios' %}">Servicios</a>
+            <a href="{% url 'galeria' %}">Galería</a>
+            <a href="/#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <section id="galeria" class="galeria fade-in">
+        <h2>Galería Antes y Después</h2>
+        <p>(Desliza la barra para ver el cambio)</p>
+
+        <div class="ba-container">
+            <div class="ba-wrapper">
+                <img src="{% static 'inicio/img/despues1.jpg' %}" class="ba-before" alt="Antes">
+                <img src="{% static 'inicio/img/antes1.jpg' %}" class="ba-after" alt="Después">
+                <div class="ba-slider">
+                    <div class="ba-icon">⬅︎✨➡︎</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ba-container">
+            <div class="ba-wrapper">
+                <img src="{% static 'inicio/img/despues2.jpg' %}" class="ba-before" alt="Antes">
+                <img src="{% static 'inicio/img/antes2.jpg' %}" class="ba-after" alt="Después">
+                <div class="ba-slider">
+                    <div class="ba-icon">⬅︎✨➡︎</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ba-container">
+            <div class="ba-wrapper">
+                <img src="{% static 'inicio/img/despues3.jpg' %}" class="ba-before" alt="Antes">
+                <img src="{% static 'inicio/img/antes3.jpg' %}" class="ba-after" alt="Después">
+                <div class="ba-slider">
+                    <div class="ba-icon">⬅︎✨➡︎</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ba-container">
+            <div class="ba-wrapper">
+                <img src="{% static 'inicio/img/despues5.jpg' %}" class="ba-before" alt="Antes">
+                <img src="{% static 'inicio/img/antes5.jpg' %}" class="ba-after" alt="Después">
+                <div class="ba-slider">
+                    <div class="ba-icon">⬅︎✨➡︎</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ba-container">
+            <div class="ba-wrapper">
+                <img src="{% static 'inicio/img/despues6.jpg' %}" class="ba-before" alt="Antes">
+                <img src="{% static 'inicio/img/antes6.jpg' %}" class="ba-after" alt="Después">
+                <div class="ba-slider">
+                    <div class="ba-icon">⬅︎✨➡︎</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ba-container">
+            <div class="ba-wrapper">
+                <img src="{% static 'inicio/img/despues7.jpg' %}" class="ba-before" alt="Antes">
+                <img src="{% static 'inicio/img/antes7.jpg' %}" class="ba-after" alt="Después">
+                <div class="ba-slider">
+                    <div class="ba-icon">⬅︎✨➡︎</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ba-container">
+            <div class="ba-wrapper">
+                <img src="{% static 'inicio/img/despues4.jpg' %}" class="ba-before" alt="Antes">
+                <img src="{% static 'inicio/img/antes4.jpg' %}" class="ba-after" alt="Después">
+                <div class="ba-slider">
+                    <div class="ba-icon">⬅︎✨➡︎</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="footer fade-in">
+        <p>© 2025 Bachkatov Detailing | Todos los derechos reservados | El arte del detailing.</p>
+        <br>
+        <p>Diseñado por Dimitri Bachkatov</p>
+        <a href="https://www.instagram.com/d.n.b.d_/?hl=es-la" target="_blank" aria-label="Instagram">
+            <img src="{% static 'inicio/img/instagram_icon.png' %}" alt="Instagram" class="instagram-img">
+        </a>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faders = document.querySelectorAll('.fade-in');
+    
+            const appearOptions = {
+                threshold: 0.2
+            };
+    
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+    
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const baWrappers = document.querySelectorAll('.ba-wrapper');
+    
+            baWrappers.forEach(wrapper => {
+                const afterImage = wrapper.querySelector('.ba-after');
+                const slider = wrapper.querySelector('.ba-slider');
+                const icon = wrapper.querySelector('.ba-icon'); // capturamos el ícono
+    
+                function moveSlider(e) {
+                    const rect = wrapper.getBoundingClientRect();
+                    let x = e.clientX || e.touches[0].clientX;
+                    let position = x - rect.left;
+                    let percentage = (position / rect.width) * 100;
+    
+                    // Limitar entre 0% y 100%
+                    if (percentage < 0) percentage = 0;
+                    if (percentage > 100) percentage = 100;
+    
+                    afterImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+                    slider.style.left = `${percentage}%`;
+                    icon.style.left = `${percentage}%`;
+    
+                    // 🎡 Girar el icono
+                    let rotation = percentage * 3.6; // 0-100% se convierte en 0-360 grados
+                    icon.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
+                }
+    
+                wrapper.addEventListener('mousemove', moveSlider);
+                wrapper.addEventListener('touchmove', moveSlider);
+            });
+        });
+    </script>
+     
+</body>
+</html>

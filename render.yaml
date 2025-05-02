@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: bachkatov-detailing
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn DetailingBachkatov.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: DetailingBachkatov.settings
+      - key: SECRET_KEY
+        value: qawsedrftg14?
+      - key: DEBUG
+        value: False

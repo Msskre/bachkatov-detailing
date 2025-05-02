@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BACHKATOV Detailing Premium</title>
+    <link rel="stylesheet" href="{% static 'inicio/css/styles.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="header-section logo-img">
+            <a href="/">
+                <img src="{% static 'inicio/img/logo.detailing.png' %}" alt="Logo" />
+            </a>
+        </div>
+        <a href="/" class="header-section logo-text">Bachkatov Detailing</a>
+        <nav class="header-section nav">
+            <a href="/">Inicio</a>
+            <a href="{% url 'servicios' %}">Servicios</a>
+            <a href="{% url 'galeria' %}">Galería</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <h1>Brillo sin límites</h1>
+            <p>Detailing de lujo para los que exigen perfección.</p>
+            <p>Cotiza y reserva directo en nuestra página de instagram!</p>
+            <a href="https://www.instagram.com/bachkatov.detailing/?hl=es-la" class="btn fade-in" target="_blank">Cotiza tu servicio</a>
+        </div>
+    </section>
+
+    <section class="servicios fade-in">
+        <h2>Servicios Exclusivos</h2>
+        <div class="cards">
+            <a href="{% url 'servicios' %}">
+                <div class="card fade-in">
+                    <h3>Detailing Exterior</h3>
+                    <p>Cuidado de pintura y lavado detallista.</p>
+                </div>
+            </a>
+            <a href="{% url 'servicios' %}">
+                <div class="card fade-in">
+                    <h3>Detailing Interior</h3>
+                    <p>Materiales restaurados y limpieza profunda.</p>
+                </div>
+            </a>
+            <a href="{% url 'servicios' %}">
+                <div class="card fade-in">
+                    <h3>Lavado Básico</h3>
+                    <p>Lavado express por dentro y por fuera.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+    
+    <section class="galeria-invitacion fade-in">
+        <h2>Descubre nuestros resultados</h2>
+        <p>Mira el antes y después de nuestros trabajos profesionales en la sección Galería.</p>
+        <a href="{% url 'galeria' %}" class="btn-galeria">Ver Galería</a>
+    </section>    
+
+    <section id="contacto" class="contacto fade-in">
+        <h2>Contacto</h2>
+        <p>Para más información o consultas, puedes contactarnos a través de los siguientes medios:</p>
+        <ul>
+            <li>
+                <strong>Correo electrónico:</strong>
+                <a href="javascript:void(0);" onclick="copiarCorreo()">bachkatov.detailing@gmail.com</a>
+            </li>
+            <li>
+                <strong>WhatsApp:</strong>
+                <a href="https://wa.me/56984577355" target="_blank">Envíanos un mensaje por WhatsApp</a>
+            </li>
+            <li>
+                <strong>Instagram:</strong>
+                <a href="https://www.instagram.com/bachkatov.detailing/?hl=es-la" target="_blank">Envíanos un mensaje por Instagram</a>
+            </li>
+        </ul>
+    </section>
+
+    <footer class="footer fade-in">
+        <p>© 2025 Bachkatov Detailing | Todos los derechos reservados | El arte del detailing.</p>
+        <br>
+        <p>Diseñado por Dimitri Bachkatov</p>
+        <a href="https://www.instagram.com/d.n.b.d_/?hl=es-la" target="_blank" aria-label="Instagram">
+            <img src="{% static 'inicio/img/instagram_icon.png' %}" alt="Instagram" class="instagram-img">
+        </a>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faders = document.querySelectorAll('.fade-in');
+    
+            const appearOptions = {
+                threshold: 0.2
+            };
+    
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+    
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        });
+    </script>
+     
+    <script>
+        function copiarCorreo() {
+            // Crear un campo de texto temporal
+            const input = document.createElement('input');
+            input.setAttribute('value', 'tu_correo@example.com');
+            document.body.appendChild(input);
+            
+            // Seleccionar el texto y copiarlo al portapapeles
+            input.select();
+            document.execCommand('copy');
+            
+            // Eliminar el campo de texto temporal
+            document.body.removeChild(input);
+            
+            // Mostrar un mensaje al usuario (opcional)
+            alert('Correo copiado al portapapeles!');
+        }
+    </script>
+    
+</body>
+</html>
