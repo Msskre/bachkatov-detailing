@@ -506,3 +506,17 @@ body {
       line-height: 1.4;
     }
 }
+
+/* ==================== MÓVILES (≤768px) ==================== */
+@media (max-width: 768px) {
+    /* Ajustes táctiles para móviles */
+    a, .btn, .btn-galeria {
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    /* Reducir padding en botones para móviles */
+    .btn {
+        padding: 0.8rem 1.5rem;
+    }
+}
