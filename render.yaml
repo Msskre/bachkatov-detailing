@@ -8,6 +8,6 @@ services:
       - key: DJANGO_SETTINGS_MODULE
         value: DetailingBachkatov.settings
       - key: SECRET_KEY
-        value: qawsedrftg14?
+        value: django-insecure-zv0e(!hnjxdkdtzi4l5+%)i0nox!7)ft6ta=b%a_z72_g9)g#9
       - key: DEBUG
         value: False
