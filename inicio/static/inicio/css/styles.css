@@ -1,16 +1,16 @@
 /* Añade esto al inicio de tu CSS */
 html {
     overflow-x: hidden; /* Evita scroll horizontal */
-  }
+}
   
-  body {
+body {
     min-width: 320px; /* Ancho mínimo soportado */
-  }
+}
   
-  img {
+img {
     max-width: 100%; /* Imágenes responsivas */
     height: auto;
-  }
+}
 
 /* Reset */
 * {
