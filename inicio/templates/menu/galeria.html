@@ -167,6 +167,12 @@
             });
         });
     </script>
-     
+    
+    <script>
+        // Bloqueo de zoom táctil
+        document.addEventListener('touchmove', function(e) {
+            if (e.scale !== 1) e.preventDefault();
+        }, { passive: false });
+    </script>
 </body>
 </html>
