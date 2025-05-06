@@ -32,6 +32,13 @@ body {
     line-height: 1.6;
     position: relative;
     overflow-x: hidden;
+    padding: 0 1rem;
+}
+
+@media (min-width: 769px) {
+    body {
+        padding: 0;
+    }
 }
 
 img {
@@ -71,11 +78,9 @@ img {
     justify-content: center;
 }
 
-/* Imagen del logo - versión móvil */
 .logo-img img {
     height: 40px;
     width: auto;
-    transform: none; /* Eliminamos transform problemática */
 }
 
 /* Versión desktop para logo */
@@ -143,6 +148,14 @@ img {
         margin-left: 2rem;
         font-size: 1rem;
         padding: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav a {
+        flex: 1 1 100%;
+        text-align: center;
+        font-size: 1.1rem;
     }
 }
 
@@ -234,10 +247,23 @@ img {
     text-align: center;
 }
 
+@media (min-width: 769px) {
+    .servicios {
+        padding: 5rem 2rem;
+    }
+}
+
 .servicios h2 {
     font-size: 2rem;
     color: var(--morado);
     margin-bottom: 2rem;
+}
+
+@media (min-width: 769px) {
+    .servicios h2 {
+        font-size: 2.8rem;
+        margin-bottom: 3rem;
+    }
 }
 
 .cards {
@@ -248,15 +274,6 @@ img {
 }
 
 @media (min-width: 769px) {
-    .servicios {
-        padding: 5rem 2rem;
-    }
-    
-    .servicios h2 {
-        font-size: 2.8rem;
-        margin-bottom: 3rem;
-    }
-    
     .cards {
         flex-direction: row;
         flex-wrap: wrap;
@@ -272,6 +289,12 @@ img {
     width: 100%;
     max-width: 350px;
     transition: transform 0.3s, box-shadow 0.3s;
+}
+
+@media (min-width: 769px) {
+    .card {
+        max-width: 350px;
+    }
 }
 
 .card:hover {
