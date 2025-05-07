@@ -40,6 +40,7 @@ body {
     position: relative;
     overflow-x: hidden;
     padding: 0 1rem;
+    padding-top: 70px; /* Compensación para header fixed */
     overscroll-behavior-y: contain;
     -webkit-font-smoothing: antialiased;
 }
@@ -47,10 +48,11 @@ body {
 @media (min-width: 769px) {
     body {
         padding: 0;
+        padding-top: 0; /* Reset para desktop */
     }
 }
 
-/* ==================== HEADER CORREGIDO ==================== */
+/* ==================== HEADER SOLUCIÓN DEFINITIVA ==================== */
 .header {
     display: flex;
     flex-direction: column;
@@ -58,12 +60,12 @@ body {
     padding: 0.8rem 1rem;
     background-color: rgba(11, 11, 11, 0.9);
     border-bottom: 2px solid var(--morado);
-    position: sticky;
+    position: fixed; /* Cambiado a fixed para móviles */
     top: 0;
-    z-index: 1000;
-    width: 100vw;
     left: 0;
-    margin-left: calc(-1 * (100vw - 100%) / 2);
+    right: 0;
+    z-index: 1000;
+    width: 100%;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     box-sizing: border-box;
@@ -72,6 +74,7 @@ body {
 
 @media (min-width: 769px) {
     .header {
+        position: sticky; /* Sticky solo en desktop */
         flex-direction: row;
         justify-content: space-between;
         padding: 1.5rem 3rem;
@@ -82,27 +85,37 @@ body {
     height: 35px;
     width: auto;
     max-width: 120px;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
+    -webkit-transform: none;
+    transform: none;
 }
 
 @media (min-width: 769px) {
     .logo-img img {
         height: 50px;
-        transform: scale(1.6) translateZ(0);
+        transform: scale(1.6);
     }
 }
 
 .logo-text {
     white-space: nowrap;
-    font-size: clamp(1.2rem, 4vw, 1.5rem);
-    padding: 0 10px;
+    font-size: 1.2rem;
+    padding: 0 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 80vw;
+}
+
+@media (min-width: 769px) {
+    .logo-text {
+        font-size: 1.5rem;
+        max-width: none;
+    }
 }
 
 /* Menú hamburguesa para móvil */
 .menu-toggle {
     display: none;
-    position: fixed;
+    position: absolute;
     right: 1rem;
     top: 1rem;
     background: none;
@@ -110,6 +123,8 @@ body {
     color: var(--blanco);
     font-size: 1.5rem;
     z-index: 1100;
+    margin: 0;
+    padding: 5px;
 }
 
 @media (max-width: 768px) {
@@ -119,7 +134,7 @@ body {
     .nav {
         display: none;
         position: fixed;
-        top: 60px;
+        top: 70px; /* Ajustado a altura del header */
         left: 0;
         width: 100%;
         background: var(--negro);
@@ -131,10 +146,18 @@ body {
 
 /* ==================== HERO SECTION ==================== */
 .hero {
-    height: 100vh;
-    height: -webkit-fill-available;
-    min-height: -webkit-fill-available;
+    height: calc(100vh - 70px); /* Resta altura del header */
+    height: calc(-webkit-fill-available - 70px);
+    min-height: calc(-webkit-fill-available - 70px);
     background-attachment: scroll;
+}
+
+@media (min-width: 769px) {
+    .hero {
+        height: 100vh;
+        height: -webkit-fill-available;
+        min-height: -webkit-fill-available;
+    }
 }
 
 .hero-content h1 {
@@ -202,5 +225,11 @@ body {
 @supports (-webkit-touch-callout: none) {
     .footer {
         padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+    }
+    body {
+        padding-top: calc(70px + env(safe-area-inset-top));
+    }
+    .header {
+        padding-top: env(safe-area-inset-top);
     }
 }
