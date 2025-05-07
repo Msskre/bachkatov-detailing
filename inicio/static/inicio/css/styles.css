@@ -17,9 +17,9 @@
 /* Base mejorada para móviles */
 html {
     overflow-x: hidden;
-    -webkit-text-size-adjust: 100%; /* Previene ajuste automático de texto en iOS */
+    -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
-    touch-action: manipulation; /* Mejora la respuesta táctil */
+    touch-action: manipulation;
 }
 
 body {
@@ -45,7 +45,7 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
-    border: 0; /* Elimina bordes en algunos navegadores */
+    border: 0;
 }
 
 /* ==================== HEADER RESPONSIVO ==================== */
@@ -64,12 +64,17 @@ img {
     flex-wrap: wrap;
 }
 
-/* Versión desktop */
 @media (min-width: 769px) {
     .header {
         flex-direction: row;
         justify-content: space-between;
         padding: 1.5rem 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 1rem 0.5rem;
     }
 }
 
@@ -85,7 +90,6 @@ img {
     width: auto;
 }
 
-/* Versión desktop para logo */
 @media (min-width: 769px) {
     .logo-img img {
         height: 50px;
@@ -110,6 +114,12 @@ img {
         font-size: 2rem;
         margin: 0;
         width: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-text {
+        font-size: 1.3rem;
     }
 }
 
@@ -157,10 +167,17 @@ img {
 }
 
 @media (max-width: 768px) {
+    .nav {
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
     .nav a {
         flex: 1 1 100%;
         text-align: center;
-        font-size: 1.1rem;
+        font-size: 1rem;
+        padding: 0.4rem 0.6rem;
+        min-width: auto;
     }
 }
 
@@ -172,9 +189,9 @@ img {
 /* ==================== HERO SECTION ==================== */
 .hero {
     height: 100vh;
-    min-height: 500px; /* Altura mínima para móviles */
+    min-height: 500px;
     background: url('/static/inicio/img/elegante.jpg') center center / cover no-repeat;
-    background-attachment: scroll; /* Cambiado para móviles */
+    background-attachment: scroll;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -185,7 +202,7 @@ img {
 
 @media (min-width: 769px) {
     .hero {
-        background-attachment: fixed; /* Solo parallax en desktop */
+        background-attachment: fixed;
     }
 }
 
@@ -220,12 +237,23 @@ img {
     .hero-content h1 {
         font-size: 3.5rem;
     }
-    
+
     .hero-content p {
         font-size: 1.4rem;
     }
 }
 
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
+
+/* Botón */
 .btn {
     padding: 1rem 2rem;
     background-color: var(--morado);
@@ -245,8 +273,14 @@ img {
     transform: scale(1.05);
 }
 
+@media (max-width: 480px) {
+    .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
 /* ==================== SECCIONES RESPONSIVAS ==================== */
-/* Servicios */
 .servicios {
     padding: 3rem 1rem;
     text-align: center;
@@ -316,7 +350,7 @@ img {
     color: var(--blanco);
 }
 
-/* Footer */
+/* ==================== FOOTER ==================== */
 .footer {
     text-align: center;
     padding: 1.5rem;
