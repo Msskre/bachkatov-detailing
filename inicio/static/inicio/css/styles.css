@@ -158,15 +158,6 @@ img {
     justify-content: center;
 }
 
-.hamburguesa {
-    display: none;
-    font-size: 2rem;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-}
-
 @media (min-width: 769px) {
     .nav a {
         margin-left: 2rem;
@@ -195,14 +186,6 @@ img {
 
     .nav.show {
         display: flex; /* Muestra el menú cuando se activa */
-    }
-
-    .hamburguesa {
-        display: block; /* Mostrar el botón */
-        position: absolute;
-        right: 1rem;
-        top: 1rem;
-        z-index: 1100;
     }
 }
 
