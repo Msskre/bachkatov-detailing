@@ -20,7 +20,7 @@
         <button class="hamburguesa" onclick="toggleMenu()">
             ☰
         </button>
-        
+
         <nav class="header-section nav">
             <a href="/">Inicio</a>
             <a href="{% url 'servicios' %}">Servicios</a>
@@ -137,6 +137,13 @@
             
             // Mostrar un mensaje al usuario (opcional)
             alert('Correo copiado al portapapeles!');
+        }
+    </script>
+    
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menuNav");
+            menu.classList.toggle("show");
         }
     </script>
     
