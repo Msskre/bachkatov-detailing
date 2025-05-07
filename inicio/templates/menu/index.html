@@ -4,7 +4,7 @@
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>BACHKATOV Detailing Premium</title>
     <link rel="stylesheet" href="{% static 'inicio/css/styles.css' %}">
 </head>
@@ -16,6 +16,7 @@
             </a>
         </div>
         <a href="/" class="header-section logo-text">Bachkatov Detailing</a>
+        <button class="menu-toggle" aria-label="Abrir menú">☰</button>
         <nav class="header-section nav">
             <a href="/">Inicio</a>
             <a href="{% url 'servicios' %}">Servicios</a>
@@ -134,6 +135,11 @@
             alert('Correo copiado al portapapeles!');
         }
     </script>
-    
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.getElementById('main-nav').classList.toggle('show');
+        });
+    </script>
 </body>
 </html>
