@@ -34,7 +34,7 @@ body {
     position: relative;
     overflow-x: hidden;
     padding: 0 1rem;
-    padding-top: 60px;
+    padding-top: 60px; /* Compensación para header */
     overscroll-behavior-y: contain;
     -webkit-font-smoothing: antialiased;
 }
@@ -42,14 +42,16 @@ body {
 @media (min-width: 769px) {
     body {
         padding: 0;
+        padding-top: 0;
     }
 }
 
-/* ==================== HEADER DEFINITIVO ==================== */
+/* ==================== HEADER CORREGIDO ==================== */
 .header {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
     padding: 0.8rem 1rem;
     background-color: rgba(11, 11, 11, 0.9);
     border-bottom: 2px solid var(--morado);
@@ -61,76 +63,106 @@ body {
     width: 100%;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
+    box-sizing: border-box;
 }
 
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+/* Logo */
+.logo-img {
+    order: 1;
 }
 
 .logo-img img {
     height: 35px;
     width: auto;
+    max-width: 120px;
 }
 
+/* Texto del logo */
 .logo-text {
+    order: 3;
+    width: 100%;
+    text-align: center;
     font-size: 1.2rem;
     color: var(--morado);
     text-decoration: none;
     font-weight: bold;
+    padding: 0.5rem 0;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* Menú hamburguesa - SOLO VISIBLE EN MÓVIL */
+/* Menú hamburguesa */
 .menu-toggle {
-    display: none;
+    order: 2;
+    display: block;
     background: none;
     border: none;
     color: var(--blanco);
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     cursor: pointer;
     padding: 0.5rem;
+    z-index: 1100;
 }
 
-/* Navegación - VISIBLE EN DESKTOP */
+/* Navegación */
 .nav {
+    order: 4;
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--negro);
+    padding: 1rem 0;
+}
+
+.nav.show {
     display: flex;
-    gap: 1.5rem;
 }
 
 .nav a {
     color: var(--blanco);
     text-decoration: none;
+    padding: 0.8rem 1rem;
+    text-align: center;
     font-size: 1rem;
 }
 
-/* Versión móvil */
-@media (max-width: 768px) {
+/* Versión desktop */
+@media (min-width: 769px) {
+    .header {
+        flex-wrap: nowrap;
+        position: sticky;
+        padding: 1rem 2rem;
+    }
+    
     .menu-toggle {
-        display: block;
+        display: none;
+    }
+    
+    .logo-text {
+        order: 2;
+        width: auto;
+        padding: 0 1rem;
+        text-align: left;
+        flex-grow: 1;
     }
     
     .nav {
-        display: none;
-        position: fixed;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background-color: var(--negro);
-        flex-direction: column;
-        padding: 1rem 0;
-        border-top: 1px solid var(--morado);
-    }
-    
-    .nav.show {
+        order: 3;
         display: flex;
+        flex-direction: row;
+        width: auto;
+        background-color: transparent;
+        padding: 0;
     }
     
     .nav a {
-        padding: 1rem;
-        text-align: center;
-        border-bottom: 1px solid #333;
+        margin-left: 1.5rem;
+        padding: 0;
+    }
+    
+    .logo-img img {
+        height: 50px;
     }
 }
 
@@ -172,6 +204,14 @@ body {
     transform: translateZ(0);
 }
 
+/* ==================== BOTONES Y LINKS ==================== */
+.btn {
+    -webkit-appearance: none;
+    appearance: none;
+    min-width: 44px;
+    min-height: 44px;
+}
+
 /* ==================== FOOTER ==================== */
 .footer {
     background-color: var(--negro);
@@ -201,12 +241,15 @@ body {
     transform: scale(1.2);
 }
 
-/* Ajustes para iOS */
+/* Ajustes específicos para Safari iOS */
 @supports (-webkit-touch-callout: none) {
     .footer {
         padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
     }
     body {
         padding-top: calc(60px + env(safe-area-inset-top));
+    }
+    .header {
+        padding-top: env(safe-area-inset-top);
     }
 }

@@ -7,26 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>BACHKATOV Detailing Premium</title>
     <link rel="stylesheet" href="{% static 'inicio/css/styles.css' %}">
-    <style>
-        /* Estilos temporales para debug */
-        .debug-border {
-            border: 1px solid red;
-        }
-    </style>
 </head>
 <body>
     <header class="header">
-        <div class="logo-container">
-            <div class="logo-img">
-                <a href="/">
-                    <img src="{% static 'inicio/img/logo.detailing.png' %}" alt="Logo" class="debug-border"/>
-                </a>
-            </div>
-            <a href="/" class="logo-text debug-border">Bachkatov Detailing</a>
+        <div class="logo-img">
+            <a href="/">
+                <img src="{% static 'inicio/img/logo.detailing.png' %}" alt="Logo" />
+            </a>
         </div>
-        
         <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
-        
+        <a href="/" class="logo-text">Bachkatov Detailing</a>
         <nav class="nav" id="mainNav">
             <a href="/">Inicio</a>
             <a href="{% url 'servicios' %}">Servicios</a>
@@ -125,37 +115,38 @@
                 appearOnScroll.observe(fader);
             });
 
-            // Menú hamburguesa - Versión mejorada
+            // Menú hamburguesa
             const menuToggle = document.getElementById('menuToggle');
             const mainNav = document.getElementById('mainNav');
             
-            // Verificar si los elementos existen
-            console.log('Elemento menuToggle:', menuToggle);
-            console.log('Elemento mainNav:', mainNav);
-            
-            if (menuToggle && mainNav) {
-                menuToggle.addEventListener('click', function() {
-                    console.log('Botón clickeado');
-                    mainNav.classList.toggle('show');
-                    
-                    // Cambiar el ícono
-                    this.textContent = mainNav.classList.contains('show') ? '✕' : '☰';
-                    
-                    // Debug: mostrar estado actual
-                    console.log('Estado del menú:', mainNav.classList.contains('show') ? 'visible' : 'oculto');
-                });
-            } else {
-                console.error('No se encontraron los elementos del menú');
-            }
+            menuToggle.addEventListener('click', function() {
+                mainNav.classList.toggle('show');
+                
+                // Cambiar el ícono al estado activo
+                if (mainNav.classList.contains('show')) {
+                    this.textContent = '✕'; // Cambia a "X"
+                } else {
+                    this.textContent = '☰'; // Vuelve a hamburguesa
+                }
+            });
         });
+    </script>
      
+    <script>
         function copiarCorreo() {
+            // Crear un campo de texto temporal
             const input = document.createElement('input');
             input.setAttribute('value', 'bachkatov.detailing@gmail.com');
             document.body.appendChild(input);
+            
+            // Seleccionar el texto y copiarlo al portapapeles
             input.select();
             document.execCommand('copy');
+            
+            // Eliminar el campo de texto temporal
             document.body.removeChild(input);
+            
+            // Mostrar un mensaje al usuario (opcional)
             alert('Correo copiado al portapapeles!');
         }
     </script>
