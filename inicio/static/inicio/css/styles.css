@@ -15,12 +15,6 @@
     --blanco: #f8f8f8;
 }
 
-/* Viewport para Safari */
-@viewport {
-    width: device-width;
-    zoom: 1.0;
-}
-
 /* Base móvil optimizada */
 html {
     overflow-x: hidden;
@@ -40,7 +34,7 @@ body {
     position: relative;
     overflow-x: hidden;
     padding: 0 1rem;
-    padding-top: 70px; /* Compensación para header fixed */
+    padding-top: 60px; /* Compensación para header */
     overscroll-behavior-y: contain;
     -webkit-font-smoothing: antialiased;
 }
@@ -48,19 +42,20 @@ body {
 @media (min-width: 769px) {
     body {
         padding: 0;
-        padding-top: 0; /* Reset para desktop */
+        padding-top: 0;
     }
 }
 
-/* ==================== HEADER SOLUCIÓN DEFINITIVA ==================== */
+/* ==================== HEADER CORREGIDO ==================== */
 .header {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
     padding: 0.8rem 1rem;
     background-color: rgba(11, 11, 11, 0.9);
     border-bottom: 2px solid var(--morado);
-    position: fixed; /* Cambiado a fixed para móviles */
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -69,93 +64,118 @@ body {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     box-sizing: border-box;
-    overflow: hidden;
 }
 
-@media (min-width: 769px) {
-    .header {
-        position: sticky; /* Sticky solo en desktop */
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 1.5rem 3rem;
-    }
+/* Logo */
+.logo-img {
+    order: 1;
 }
 
 .logo-img img {
     height: 35px;
     width: auto;
     max-width: 120px;
-    -webkit-transform: none;
-    transform: none;
 }
 
-@media (min-width: 769px) {
-    .logo-img img {
-        height: 50px;
-        transform: scale(1.6);
-    }
-}
-
+/* Texto del logo */
 .logo-text {
-    white-space: nowrap;
+    order: 3;
+    width: 100%;
+    text-align: center;
     font-size: 1.2rem;
-    padding: 0 5px;
-    text-overflow: ellipsis;
+    color: var(--morado);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 0;
+    white-space: nowrap;
     overflow: hidden;
-    max-width: 80vw;
+    text-overflow: ellipsis;
 }
 
-@media (min-width: 769px) {
-    .logo-text {
-        font-size: 1.5rem;
-        max-width: none;
-    }
-}
-
-/* Menú hamburguesa para móvil */
+/* Menú hamburguesa */
 .menu-toggle {
-    display: none;
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
+    order: 2;
+    display: block;
     background: none;
     border: none;
     color: var(--blanco);
     font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
     z-index: 1100;
-    margin: 0;
-    padding: 5px;
 }
 
-@media (max-width: 768px) {
+/* Navegación */
+.nav {
+    order: 4;
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--negro);
+    padding: 1rem 0;
+}
+
+.nav.show {
+    display: flex;
+}
+
+.nav a {
+    color: var(--blanco);
+    text-decoration: none;
+    padding: 0.8rem 1rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* Versión desktop */
+@media (min-width: 769px) {
+    .header {
+        flex-wrap: nowrap;
+        position: sticky;
+        padding: 1rem 2rem;
+    }
+    
     .menu-toggle {
-        display: block;
-    }
-    .nav {
         display: none;
-        position: fixed;
-        top: 70px; /* Ajustado a altura del header */
-        left: 0;
-        width: 100%;
-        background: var(--negro);
     }
-    .nav.show {
+    
+    .logo-text {
+        order: 2;
+        width: auto;
+        padding: 0 1rem;
+        text-align: left;
+        flex-grow: 1;
+    }
+    
+    .nav {
+        order: 3;
         display: flex;
+        flex-direction: row;
+        width: auto;
+        background-color: transparent;
+        padding: 0;
+    }
+    
+    .nav a {
+        margin-left: 1.5rem;
+        padding: 0;
+    }
+    
+    .logo-img img {
+        height: 50px;
     }
 }
 
 /* ==================== HERO SECTION ==================== */
 .hero {
-    height: calc(100vh - 70px); /* Resta altura del header */
-    height: calc(-webkit-fill-available - 70px);
-    min-height: calc(-webkit-fill-available - 70px);
+    height: calc(100vh - 60px);
+    min-height: calc(-webkit-fill-available - 60px);
     background-attachment: scroll;
 }
 
 @media (min-width: 769px) {
     .hero {
         height: 100vh;
-        height: -webkit-fill-available;
         min-height: -webkit-fill-available;
     }
 }
@@ -227,7 +247,7 @@ body {
         padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
     }
     body {
-        padding-top: calc(70px + env(safe-area-inset-top));
+        padding-top: calc(60px + env(safe-area-inset-top));
     }
     .header {
         padding-top: env(safe-area-inset-top);

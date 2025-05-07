@@ -10,14 +10,14 @@
 </head>
 <body>
     <header class="header">
-        <div class="header-section logo-img">
+        <div class="logo-img">
             <a href="/">
                 <img src="{% static 'inicio/img/logo.detailing.png' %}" alt="Logo" />
             </a>
         </div>
-        <a href="/" class="header-section logo-text">Bachkatov Detailing</a>
-        <button class="menu-toggle" aria-label="Abrir menú">☰</button>
-        <nav class="header-section nav">
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+        <a href="/" class="logo-text">Bachkatov Detailing</a>
+        <nav class="nav" id="mainNav">
             <a href="/">Inicio</a>
             <a href="{% url 'servicios' %}">Servicios</a>
             <a href="{% url 'galeria' %}">Galería</a>
@@ -114,6 +114,21 @@
             faders.forEach(fader => {
                 appearOnScroll.observe(fader);
             });
+
+            // Menú hamburguesa
+            const menuToggle = document.getElementById('menuToggle');
+            const mainNav = document.getElementById('mainNav');
+            
+            menuToggle.addEventListener('click', function() {
+                mainNav.classList.toggle('show');
+                
+                // Cambiar el ícono al estado activo
+                if (mainNav.classList.contains('show')) {
+                    this.textContent = '✕'; // Cambia a "X"
+                } else {
+                    this.textContent = '☰'; // Vuelve a hamburguesa
+                }
+            });
         });
     </script>
      
@@ -134,12 +149,6 @@
             // Mostrar un mensaje al usuario (opcional)
             alert('Correo copiado al portapapeles!');
         }
-    </script>
-
-    <script>
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.getElementById('main-nav').classList.toggle('show');
-        });
     </script>
 </body>
 </html>
