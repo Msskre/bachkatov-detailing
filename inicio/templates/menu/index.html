@@ -115,38 +115,27 @@
                 appearOnScroll.observe(fader);
             });
 
-            // Menú hamburguesa
+            // Menú hamburguesa mejorado
             const menuToggle = document.getElementById('menuToggle');
             const mainNav = document.getElementById('mainNav');
             
-            menuToggle.addEventListener('click', function() {
-                mainNav.classList.toggle('show');
-                
-                // Cambiar el ícono al estado activo
-                if (mainNav.classList.contains('show')) {
-                    this.textContent = '✕'; // Cambia a "X"
-                } else {
-                    this.textContent = '☰'; // Vuelve a hamburguesa
-                }
-            });
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener('click', function() {
+                    mainNav.classList.toggle('show');
+                    this.textContent = mainNav.classList.contains('show') ? '✕' : '☰';
+                });
+            } else {
+                console.error('Elementos del menú no encontrados');
+            }
         });
-    </script>
      
-    <script>
         function copiarCorreo() {
-            // Crear un campo de texto temporal
             const input = document.createElement('input');
             input.setAttribute('value', 'bachkatov.detailing@gmail.com');
             document.body.appendChild(input);
-            
-            // Seleccionar el texto y copiarlo al portapapeles
             input.select();
             document.execCommand('copy');
-            
-            // Eliminar el campo de texto temporal
             document.body.removeChild(input);
-            
-            // Mostrar un mensaje al usuario (opcional)
             alert('Correo copiado al portapapeles!');
         }
     </script>
