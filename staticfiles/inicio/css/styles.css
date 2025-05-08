@@ -1,402 +1,289 @@
-/* Reset */
+/* ==================== ESTILOS GENERALES ==================== */
+/* Reset mejorado para iOS */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
 }
 
-/* Paleta elegante */
+/* Paleta de colores */
 :root {
     --negro: #0b0b0b;
     --morado: #6a0dad;
     --blanco: #f8f8f8;
 }
 
-/* General */
+/* Base móvil optimizada */
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    height: -webkit-fill-available;
+}
+
 body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    width: 100%;
     font-family: 'Poppins', sans-serif;
     background-color: var(--negro);
     color: var(--blanco);
     line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+    padding: 0 1rem;
+    padding-top: 60px;
+    overscroll-behavior-y: contain;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Header */
+@media (min-width: 769px) {
+    body {
+        padding: 0;
+    }
+}
+
+/* ==================== HEADER DEFINITIVO ==================== */
 .header {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
-    padding: 1.5rem 3rem;
-    background-color: var(--negro);
-    border-bottom: 2px solid var(--morado); 
-    position: sticky;
+    padding: 0.8rem 1rem;
+    background-color: rgba(11, 11, 11, 0.9);
+    border-bottom: 2px solid var(--morado);
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
-    
+    width: 100%;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
 }
 
-/* Distribuir los elementos del header */
-.header-section {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Logo */
+.logo-img {
+    order: 1;
+    z-index: 1101;
 }
 
-/* Imagen del logo */
 .logo-img img {
-    height: 50px; /* Mantén una altura pequeña */
+    height: 35px;
     width: auto;
-    transform: scale(1.6); /* Ajusta el tamaño visual */
-    transform-origin: left center;
+    max-width: 120px;
 }
 
-/* Título centrado */
+/* Texto del logo */
 .logo-text {
-    font-size: 2rem;
-    font-weight: bold;
+    order: 3;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
     color: var(--morado);
-    justify-content: center;
-    font-family: 'Tagesschrift', sans-serif;
     text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 1101;
 }
 
-/* Navegación */
+/* Menú hamburguesa - SOLO VISIBLE EN MÓVIL */
+.menu-toggle {
+    order: 2;
+    display: none;
+    background: none;
+    border: none;
+    color: var(--blanco);
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1101;
+    margin-left: auto;
+}
+
+/* Navegación - OCULTA EN MÓVIL */
 .nav {
-    justify-content: flex-end;
+    order: 4;
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--negro);
+    padding: 1rem 0;
+    position: absolute;
+    left: 0;
+    top: 60px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+}
+
+.nav.show {
+    display: flex;
 }
 
 .nav a {
     color: var(--blanco);
-    margin-left: 2rem;
     text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 600;
-    transition: color 0.3s, transform 0.3s;
-}
-
-.nav a:hover {
-    color: var(--morado);
-    transform: scale(1.1);
-}
-
-
-/* Hero con Parallax */
-.hero {
-    height: 100vh;
-    background: url('/static/inicio/img/elegante.jpg') center center / cover no-repeat fixed;
-    background-attachment: fixed; /* Efecto parallax */
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    padding: 1rem;
     text-align: center;
-    color: var(--blanco);
+    font-size: 1.1rem;
+    border-bottom: 1px solid #333;
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Oscurece para resaltar texto */
-    z-index: 1;
+/* Versión desktop */
+@media (min-width: 769px) {
+    .header {
+        flex-wrap: nowrap;
+        position: sticky;
+        padding: 1rem 2rem;
+    }
+    
+    .menu-toggle {
+        display: none !important;
+    }
+    
+    .logo-text {    
+        order: 2;
+        width: auto;
+        padding: 0 1rem;
+        text-align: left;
+        flex-grow: 1;
+    }
+    
+    .nav {
+        order: 3;
+        display: flex !important;
+        flex-direction: row;
+        width: auto;
+        background-color: transparent;
+        padding: 0;
+        position: static;
+        box-shadow: none;
+    }
+    
+    .nav a {
+        margin-left: 1.5rem;
+        padding: 0.5rem 0;
+        border-bottom: none;
+    }
+    
+    .logo-img img {
+        height: 50px;
+    }
 }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
+/* Versión móvil */
+@media (max-width: 768px) {
+    .header {
+        justify-content: space-between; /* o center si quieres el logo centrado */
+      }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .logo-img {
+        margin: 0 auto;
+      }
+    
+    .logo-text {
+        display: none !important;
+    }
+
+    .nav a {
+        display: none;
+    }
+    
+    .nav.show a {
+        display: block;
+    }
+
+}
+
+/* ==================== HERO SECTION ==================== */
+.hero {
+    height: calc(100vh - 60px);
+    min-height: calc(-webkit-fill-available - 60px);
+    background-attachment: scroll;
+}
+
+@media (min-width: 769px) {
+    .hero {
+        height: 100vh;
+        min-height: -webkit-fill-available;
+    }
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
-    color: var(--morado);
-    margin-bottom: 1rem;
-    text-transform: uppercase;
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    -webkit-font-smoothing: antialiased;
 }
 
-.hero-content p {
-    font-size: 1.4rem;
-    margin-bottom: 2rem;
-}
-
-.btn {
-    padding: 1rem 2.5rem;
-    background-color: var(--morado);
-    color: var(--blanco);
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 30px;
-    text-transform: uppercase;
-    transition: background 0.3s, transform 0.3s;
-}
-
-.btn:hover {
-    background-color: #500c91;
-    transform: scale(1.05);
-}
-
-/* Servicios */
-.servicios {
-    padding: 5rem 2rem;
-    text-align: center;
-}
-
-.servicios h2 {
-    font-size: 2.8rem;
-    color: var(--morado);
-    margin-bottom: 3rem;
-}
-
+/* ==================== SERVICIOS ==================== */
 .cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
 }
 
 .card {
-    background-color: #151515;
-    border: 2px solid var(--morado);
-    border-radius: 15px;
-    padding: 2rem;
-    width: 280px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 20px var(--morado);
+/* ==================== BOTONES Y LINKS ==================== */
+.btn {
+    -webkit-appearance: none;
+    appearance: none;
+    min-width: 44px;
+    min-height: 44px;
 }
 
-.card h3 {
-    color: var(--morado);
-    margin-bottom: 1rem;
-}
-
-.card p {
-    color: var(--blanco);
-}
-
-.card-link {
-    text-decoration: none;
-    color: inherit;
-}
-
-.seccion-servicios {
-    background-image: url('/static/inicio/img/elegante.jpg'); /* Ruta relativa a tu imagen */
-    background-size: cover;         /* Ajusta la imagen para cubrir toda la sección */
-    background-position: center;    /* Centra la imagen */
-    background-repeat: no-repeat;   /* Evita que se repita */
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.servicio-card {
-    background-color: rgba(141, 87, 244, 0.8); /* El último valor (0.8) es la opacidad */
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 15px;
-    max-width: 700px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
-    /* Removido opacity: 0.8; */
-}
-
-.servicio-card:hover {
-    transform: scale(1.02);
-}
-
-.servicio-card h3 {
-    margin-bottom: 10px;
-    color: #1a1a1a;
-    opacity: 1;
-}
-
-.servicio-card p {
-    color: #f8f8f8;
-    font-size: 1rem;
-    line-height: 1.6;
-    opacity: 1;
-}
-
-/* Galería invitacion index */
-.galeria-invitacion {
-    background-color: #1a1a1a;
-    padding: 60px 20px;
-    text-align: center;
-    margin-top: 40px;
-    border-radius: 10px;
-}
-
-.galeria-invitacion h2 {
-    color: var(--morado);
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.galeria-invitacion p {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-}
-
-.btn-galeria {
-    display: inline-block;
-    padding: 10px 25px;
-    background-color: #222;
-    color: #fff;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.btn-galeria:hover {
-    background-color: #444;
-}
-
-/* Galería */
-.galeria {
-    padding: 4rem 2rem;
-    background-color: #000;
-    color: white;
-    text-align: center;
-}
-
-.galeria h2 {
-    font-size: 2.5rem;
-    color: #a855f7;
-    margin-bottom: 2rem;
-}
-
-/* Contenedor de la galería */
-.ba-container {
-    max-width: 800px;
-    margin: 2rem auto;
-    position: relative;
-}
-
-.ba-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 600px; /* Máximo ancho para el bloque */
-    height: 400px; /* Altura fija */
-    overflow: hidden;
-    margin: 0 auto; /* Centrado */
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
-}
-
-.ba-before,
-.ba-after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 👈 Esto hace que la imagen se recorte elegante */
-    object-position: center center;
-}
-
-/* Barra */
-.ba-slider {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 2px; /* Más delgada */
-    height: 100%;
-    background-color: #a855f7;
-    z-index: 5; /* Más bajo que el icono */
-}
-
-/* Círculo con emoji */
-.ba-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
-    background-color: #a855f7;
-    color: white;
-    border-radius: 50%;
-    font-size: 22px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 10px #a855f7;
-    z-index: 10; /* Por encima de todo */
-    pointer-events: none;
-}
-
-/* Footer */
+/* ==================== FOOTER ==================== */
 .footer {
-    text-align: center;
-    padding: 2rem;
-    background-color: #0b0b0b;
+    background-color: var(--negro);
     border-top: 2px solid var(--morado);
+    padding: 1.5rem 1rem;
+    text-align: center;
     font-size: 0.9rem;
+    line-height: 1.5;
+    position: relative;
+    z-index: 500;
 }
-  
+
+.footer p {
+    margin: 0;
+    padding: 0.2rem 0;
+}
+
 .instagram-img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-  margin-left: 8px;
-  transition: transform 0.3s ease;
+    width: 24px;
+    height: 24px;
+    margin-top: 0.8rem;
+    transition: transform 0.3s ease;
+    display: inline-block;
 }
 
 .instagram-img:hover {
-  transform: scale(1.2);
-} 
-
-/* Estilo para la sección de contacto */
-.contacto {
-    text-align: center;
-    padding: 4rem 2rem;
-    background-color: #2f2f2f;
-    color: var(--blanco);
+    transform: scale(1.2);
 }
 
-.contacto h2 {
-    font-size: 2rem;
-    color: var(--morado);
-    margin-bottom: 1.5rem;
-}
-
-.contacto p {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-}
-
-.contacto ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.contacto li {
-    margin-bottom: 1rem;
-    font-size: 1rem;
-}
-
-.contacto a {
-    color: var(--morado);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.contacto a:hover {
-    color: #500c91;
-    text-decoration: underline;
-}
-
-/* Animaciones suaves al scrollear */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1s ease, transform 1s ease;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+/* Ajustes para iOS */
+@supports (-webkit-touch-callout: none) {
+    .footer {
+        padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+    }
+    body {
+        padding-top: calc(60px + env(safe-area-inset-top));
+    }
 }
