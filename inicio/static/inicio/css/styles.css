@@ -211,6 +211,7 @@ body {
     margin-bottom: 10px;
     color: #1a1a1a;
     opacity: 1;
+    text-decoration: none;
 }
 
 .servicio-card p {
@@ -218,6 +219,7 @@ body {
     font-size: 1rem;
     line-height: 1.6;
     opacity: 1;
+    text-decoration: none;
 }
 
 /* Galería invitacion index */
@@ -456,10 +458,6 @@ body {
         font-size: 2.2rem;
     }
 
-    .servicios a {
-        text-decoration: none;
-    }
-    
     .card {
         width: 100%;
         max-width: 350px;
