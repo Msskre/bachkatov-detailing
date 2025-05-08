@@ -153,6 +153,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
+    text-decoration: none;
 }
 
 .card {
