@@ -145,7 +145,7 @@ body {
         display: none !important;
     }
     
-    .logo-text {
+    .logo-text {    
         order: 2;
         width: auto;
         padding: 0 1rem;
@@ -177,10 +177,22 @@ body {
 
 /* Versión móvil */
 @media (max-width: 768px) {
+    .header {
+        justify-content: space-between; /* o center si quieres el logo centrado */
+      }
+
     .menu-toggle {
         display: block;
     }
     
+    .logo-img {
+        margin: 0 auto;
+      }
+    
+    .logo-text {
+        display: none;
+    }
+
     .nav a {
         display: none;
     }
@@ -188,6 +200,7 @@ body {
     .nav.show a {
         display: block;
     }
+
 }
 
 /* ==================== HERO SECTION ==================== */
