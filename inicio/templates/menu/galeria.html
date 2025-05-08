@@ -15,7 +15,6 @@
                 <img src="{% static 'inicio/img/logo.detailing.png' %}" alt="Logo" />
             </a>
         </div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
         <a href="/" class="logo-text">Bachkatov Detailing</a>
         <nav class="nav" id="mainNav">
             <a href="/">Inicio</a>
@@ -166,20 +165,7 @@
                 wrapper.addEventListener('mousemove', moveSlider);
                 wrapper.addEventListener('touchmove', moveSlider);
             });
-
-    
-            const menuToggle = document.getElementById('menuToggle');
-            const mainNav = document.getElementById('mainNav');
-        
-            if (menuToggle && mainNav) {
-                menuToggle.addEventListener('click', function() {
-                    mainNav.classList.toggle('show');
-                    this.textContent = mainNav.classList.contains('show') ? '✕' : '☰';
-                });
-            } else {
-                console.error('Elementos del menú no encontrados');
-            }
-        });      
+        });   
     </script>
 
 </body>
