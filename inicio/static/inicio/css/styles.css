@@ -142,6 +142,10 @@ body {
     text-align: center;
 }
 
+.servicios a {
+    text-decoration: none;
+}
+
 .servicios h2 {
     font-size: 2.8rem;
     color: var(--morado);
