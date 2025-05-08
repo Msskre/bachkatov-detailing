@@ -455,6 +455,10 @@ body {
     .servicios h2 {
         font-size: 2.2rem;
     }
+
+    .servicios a {
+        text-decoration: none;
+    }
     
     .card {
         width: 100%;
