@@ -358,6 +358,114 @@ img {
     color: var(--blanco);
 }
 
+/* Galería invitacion index */
+.galeria-invitacion {
+    background-color: #1a1a1a;
+    padding: 60px 20px;
+    text-align: center;
+    margin-top: 40px;
+    border-radius: 10px;
+}
+
+.galeria-invitacion h2 {
+    color: var(--morado);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.galeria-invitacion p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.btn-galeria {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #222;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-galeria:hover {
+    background-color: #444;
+}
+
+/* Galería */
+.galeria {
+    padding: 4rem 2rem;
+    background-color: #000;
+    color: white;
+    text-align: center;
+}
+
+.galeria h2 {
+    font-size: 2.5rem;
+    color: #a855f7;
+    margin-bottom: 2rem;
+}
+
+/* Contenedor de la galería */
+.ba-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    position: relative;
+}
+
+.ba-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Máximo ancho para el bloque */
+    height: 400px; /* Altura fija */
+    overflow: hidden;
+    margin: 0 auto; /* Centrado */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.ba-before,
+.ba-after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 👈 Esto hace que la imagen se recorte elegante */
+    object-position: center center;
+}
+
+/* Barra */
+.ba-slider {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px; /* Más delgada */
+    height: 100%;
+    background-color: #a855f7;
+    z-index: 5; /* Más bajo que el icono */
+}
+
+/* Círculo con emoji */
+.ba-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background-color: #a855f7;
+    color: white;
+    border-radius: 50%;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px #a855f7;
+    z-index: 10; /* Por encima de todo */
+    pointer-events: none;
+}
+
 /* ==================== FOOTER ==================== */
 .footer {
     text-align: center;
@@ -377,4 +485,56 @@ img {
 
 .instagram-img:hover {
     transform: scale(1.2);
+}
+
+/* Estilo para la sección de contacto */
+.contacto {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: #2f2f2f;
+    color: var(--blanco);
+}
+
+.contacto h2 {
+    font-size: 2rem;
+    color: var(--morado);
+    margin-bottom: 1.5rem;
+}
+
+.contacto p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.contacto ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contacto li {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.contacto a {
+    color: var(--morado);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contacto a:hover {
+    color: #500c91;
+    text-decoration: underline;
+}
+
+/* Animaciones suaves al scrollear */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
