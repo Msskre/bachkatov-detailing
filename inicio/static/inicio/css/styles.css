@@ -172,10 +172,12 @@ body {
 .card h3 {
     color: var(--morado);
     margin-bottom: 1rem;
+    text-decoration: none;
 }
 
 .card p {
     color: var(--blanco);
+    text-decoration: none;
 }
 
 .card-link {
@@ -211,7 +213,6 @@ body {
     margin-bottom: 10px;
     color: #1a1a1a;
     opacity: 1;
-    text-decoration: none;
 }
 
 .servicio-card p {
@@ -219,7 +220,6 @@ body {
     font-size: 1rem;
     line-height: 1.6;
     opacity: 1;
-    text-decoration: none;
 }
 
 /* Galería invitacion index */
