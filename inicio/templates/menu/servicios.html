@@ -106,7 +106,19 @@
             faders.forEach(fader => {
                 appearOnScroll.observe(fader);
             });
-        });
+            
+            const menuToggle = document.getElementById('menuToggle');
+            const mainNav = document.getElementById('mainNav');
+        
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener('click', function() {
+                    mainNav.classList.toggle('show');
+                    this.textContent = mainNav.classList.contains('show') ? '✕' : '☰';
+                });
+            } else {
+                console.error('Elementos del menú no encontrados');
+            }
+        }); 
     </script>
      
 </body>
