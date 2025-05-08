@@ -9,136 +9,139 @@
 </head>
 <body>
   <header class="header">
-    <div class="logo-img">
-      <a href="/">
-        <img src="{% static 'inicio/img/logo.detailing.png' %}" alt="Logo" />
+    <div class="container">
+      <div class="logo">
+        <a href="/">
+          <img src="{% static 'inicio/img/logo.detailing.png' %}" alt="Logo" />
+          <span class="logo-text">Bachkatov Detailing</span>
+        </a>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+      <nav class="nav" id="mainNav">
+        <a href="/">Inicio</a>
+        <a href="{% url 'servicios' %}">Servicios</a>
+        <a href="{% url 'galeria' %}">Galería</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero fade-in">
+    <div class="container hero-content">
+      <h1>Brillo sin límites</h1>
+      <p>Detailing de lujo para los que exigen perfección.</p>
+      <p>Cotiza y reserva directo en nuestra página de instagram!</p>
+      <a href="https://www.instagram.com/bachkatov.detailing/?hl=es-la" class="btn" target="_blank">Cotiza tu servicio</a>
+    </div>
+  </section>
+
+  <section class="servicios fade-in">
+    <div class="container">
+      <h2>Servicios Exclusivos</h2>
+      <div class="cards">
+        <a href="{% url 'servicios' %}">
+          <div class="card">
+            <h3>Detailing Exterior</h3>
+            <p>Cuidado de pintura y lavado detallista.</p>
+          </div>
+        </a>
+        <a href="{% url 'servicios' %}">
+          <div class="card">
+            <h3>Detailing Interior</h3>
+            <p>Materiales restaurados y limpieza profunda.</p>
+          </div>
+        </a>
+        <a href="{% url 'servicios' %}">
+          <div class="card">
+            <h3>Lavado Básico</h3>
+            <p>Lavado express por dentro y por fuera.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="galeria-invitacion fade-in">
+    <div class="container">
+      <h2>Descubre nuestros resultados</h2>
+      <p>Mira el antes y después de nuestros trabajos profesionales en la sección Galería.</p>
+      <a href="{% url 'galeria' %}" class="btn">Ver Galería</a>
+    </div>
+  </section>
+
+  <section id="contacto" class="contacto fade-in">
+    <div class="container">
+      <h2>Contacto</h2>
+      <p>Para más información o consultas, puedes contactarnos a través de los siguientes medios:</p>
+      <ul>
+        <li>
+          <strong>Correo electrónico:</strong>
+          <a href="javascript:void(0);" onclick="copiarCorreo()">bachkatov.detailing@gmail.com</a>
+        </li>
+        <li>
+          <strong>WhatsApp:</strong>
+          <a href="https://wa.me/56984577355" target="_blank">Envíanos un mensaje por WhatsApp</a>
+        </li>
+        <li>
+          <strong>Instagram:</strong>
+          <a href="https://www.instagram.com/bachkatov.detailing/?hl=es-la" target="_blank">Envíanos un mensaje por Instagram</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="footer fade-in">
+    <div class="container">
+      <p>© 2025 Bachkatov Detailing | Todos los derechos reservados | El arte del detailing.</p>
+      <p>Diseñado por Dimitri Bachkatov</p>
+      <a href="https://www.instagram.com/d.n.b.d_/?hl=es-la" target="_blank" aria-label="Instagram">
+        <img src="{% static 'inicio/img/Instagram_icon.png' %}" alt="Instagram" class="instagram-img" />
       </a>
     </div>
-    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
-    <a href="/" class="logo-text">Bachkatov Detailing</a>
-    <nav class="nav" id="mainNav">
-      <a href="/">Inicio</a>
-      <a href="{% url 'servicios' %}">Servicios</a>
-      <a href="{% url 'galeria' %}">Galería</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-  </header>
-    
-    <section class="hero">
-        <div class="hero-content fade-in">
-            <h1>Brillo sin límites</h1>
-            <p>Detailing de lujo para los que exigen perfección.</p>
-            <p>Cotiza y reserva directo en nuestra página de instagram!</p>
-            <a href="https://www.instagram.com/bachkatov.detailing/?hl=es-la" class="btn fade-in" target="_blank">Cotiza tu servicio</a>
-        </div>
-    </section>
+  </footer>
 
-    <section class="servicios fade-in">
-        <h2>Servicios Exclusivos</h2>
-        <div class="cards">
-            <a href="{% url 'servicios' %}">
-                <div class="card fade-in">
-                    <h3>Detailing Exterior</h3>
-                    <p>Cuidado de pintura y lavado detallista.</p>
-                </div>
-            </a>
-            <a href="{% url 'servicios' %}">
-                <div class="card fade-in">
-                    <h3>Detailing Interior</h3>
-                    <p>Materiales restaurados y limpieza profunda.</p>
-                </div>
-            </a>
-            <a href="{% url 'servicios' %}">
-                <div class="card fade-in">
-                    <h3>Lavado Básico</h3>
-                    <p>Lavado express por dentro y por fuera.</p>
-                </div>
-            </a>
-        </div>
-    </section>
-    
-    <section class="galeria-invitacion fade-in">
-        <h2>Descubre nuestros resultados</h2>
-        <p>Mira el antes y después de nuestros trabajos profesionales en la sección Galería.</p>
-        <a href="{% url 'galeria' %}" class="btn-galeria">Ver Galería</a>
-    </section>    
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const faders = document.querySelectorAll('.fade-in');
 
-    <section id="contacto" class="contacto fade-in">
-        <h2>Contacto</h2>
-        <p>Para más información o consultas, puedes contactarnos a través de los siguientes medios:</p>
-        <ul>
-            <li>
-                <strong>Correo electrónico:</strong>
-                <a href="javascript:void(0);" onclick="copiarCorreo()">bachkatov.detailing@gmail.com</a>
-            </li>
-            <li>
-                <strong>WhatsApp:</strong>
-                <a href="https://wa.me/56984577355" target="_blank">Envíanos un mensaje por WhatsApp</a>
-            </li>
-            <li>
-                <strong>Instagram:</strong>
-                <a href="https://www.instagram.com/bachkatov.detailing/?hl=es-la" target="_blank">Envíanos un mensaje por Instagram</a>
-            </li>
-        </ul>
-    </section>
+      const appearOptions = {
+        threshold: 0.2
+      };
 
-    <footer class="footer fade-in">
-        <p>© 2025 Bachkatov Detailing | Todos los derechos reservados | El arte del detailing.</p>
-        <br>
-        <p>Diseñado por Dimitri Bachkatov</p>
-        <a href="https://www.instagram.com/d.n.b.d_/?hl=es-la" target="_blank" aria-label="Instagram">
-            <img src="{% static 'inicio/img/Instagram_icon.png' %}" alt="Instagram" class="instagram-img">
-        </a>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const faders = document.querySelectorAll('.fade-in');
-    
-            const appearOptions = {
-                threshold: 0.2
-            };
-    
-            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) {
-                        return;
-                    } else {
-                        entry.target.classList.add('visible');
-                        appearOnScroll.unobserve(entry.target);
-                    }
-                });
-            }, appearOptions);
-    
-            faders.forEach(fader => {
-                appearOnScroll.observe(fader);
-            });
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const menuToggle = document.getElementById('menuToggle');
-            const nav = document.getElementById('mainNav');
-          
-            menuToggle.addEventListener('click', () => {
-                nav.classList.toggle('show');
-            });
-          
-                // Cerrar menú al hacer clic en un enlace (opcional)
-            document.querySelectorAll('.nav a').forEach(link => {
-                link.addEventListener('click', () => {
-                    nav.classList.remove('show');
-                });
-            });
+      const appearOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
         });
-     
-        function copiarCorreo() {
-            const input = document.createElement('input');
-            input.setAttribute('value', 'bachkatov.detailing@gmail.com');
-            document.body.appendChild(input);
-            input.select();
-            document.execCommand('copy');
-            document.body.removeChild(input);
-            alert('Correo copiado al portapapeles!');
-        }
-    </script>
+      }, appearOptions);
+
+      faders.forEach(fader => appearOnScroll.observe(fader));
+
+      const menuToggle = document.getElementById('menuToggle');
+      const nav = document.getElementById('mainNav');
+
+      menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('show');
+      });
+
+      document.querySelectorAll('.nav a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('show');
+        });
+      });
+    });
+
+    function copiarCorreo() {
+      const input = document.createElement('input');
+      input.setAttribute('value', 'bachkatov.detailing@gmail.com');
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+      alert('Correo copiado al portapapeles!');
+    }
+  </script>
 </body>
 </html>
