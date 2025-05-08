@@ -4,19 +4,19 @@
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BACHKATOV Detailing Premium</title>
     <link rel="stylesheet" href="{% static 'inicio/css/styles.css' %}">
 </head>
 <body>
     <header class="header">
-        <div class="logo-img">
+        <div class="header-section logo-img">
             <a href="/">
                 <img src="{% static 'inicio/img/logo.detailing.png' %}" alt="Logo" />
             </a>
         </div>
-        <a href="/" class="logo-text">Bachkatov Detailing</a>
-        <nav class="nav" id="mainNav">
+        <a href="/" class="header-section logo-text">Bachkatov Detailing</a>
+        <nav class="header-section nav">
             <a href="/">Inicio</a>
             <a href="{% url 'servicios' %}">Servicios</a>
             <a href="{% url 'galeria' %}">Galería</a>
@@ -113,16 +113,27 @@
             faders.forEach(fader => {
                 appearOnScroll.observe(fader);
             });
+        });
+    </script>
      
+    <script>
         function copiarCorreo() {
+            // Crear un campo de texto temporal
             const input = document.createElement('input');
-            input.setAttribute('value', 'bachkatov.detailing@gmail.com');
+            input.setAttribute('value', 'tu_correo@example.com');
             document.body.appendChild(input);
+            
+            // Seleccionar el texto y copiarlo al portapapeles
             input.select();
             document.execCommand('copy');
+            
+            // Eliminar el campo de texto temporal
             document.body.removeChild(input);
+            
+            // Mostrar un mensaje al usuario (opcional)
             alert('Correo copiado al portapapeles!');
         }
     </script>
+    
 </body>
 </html>
