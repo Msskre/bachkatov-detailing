@@ -37,7 +37,6 @@ body {
     padding-top: 60px;
     overscroll-behavior-y: contain;
     -webkit-font-smoothing: antialiased;
-    touch-action: manipulation;
 }
 
 @media (min-width: 769px) {
@@ -63,7 +62,6 @@ body {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     box-sizing: border-box;
-    height: 60px;
 }
 
 /* Logo */
@@ -106,7 +104,6 @@ body {
     padding: 0.5rem;
     z-index: 1101;
     margin-left: auto;
-    touch-action: manipulation;
 }
 
 /* Navegación - OCULTA EN MÓVIL */
@@ -121,8 +118,6 @@ body {
     left: 0;
     top: 60px;
     box-shadow: 0 10px 15px rgba(0,0,0,0.3);
-    will-change: transform;
-    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .nav.show {
@@ -144,13 +139,12 @@ body {
         flex-wrap: nowrap;
         position: sticky;
         padding: 1rem 2rem;
-        height: auto;
     }
-
+    
     .menu-toggle {
         display: none !important;
     }
-
+    
     .logo-text {
         order: 2;
         width: auto;
@@ -158,7 +152,7 @@ body {
         text-align: left;
         flex-grow: 1;
     }
-
+    
     .nav {
         order: 3;
         display: flex !important;
@@ -169,13 +163,13 @@ body {
         position: static;
         box-shadow: none;
     }
-
+    
     .nav a {
         margin-left: 1.5rem;
         padding: 0.5rem 0;
         border-bottom: none;
     }
-
+    
     .logo-img img {
         height: 50px;
     }
@@ -186,11 +180,11 @@ body {
     .menu-toggle {
         display: block;
     }
-
+    
     .nav a {
         display: none;
     }
-
+    
     .nav.show a {
         display: block;
     }
@@ -276,7 +270,6 @@ body {
     .footer {
         padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
     }
-
     body {
         padding-top: calc(60px + env(safe-area-inset-top));
     }
