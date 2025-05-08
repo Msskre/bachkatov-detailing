@@ -48,8 +48,9 @@ body {
 /* ==================== HEADER DEFINITIVO ==================== */
 .header {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
     padding: 0.8rem 1rem;
     background-color: rgba(11, 11, 11, 0.9);
     border-bottom: 2px solid var(--morado);
@@ -66,7 +67,6 @@ body {
 
 /* Logo */
 .logo-img {
-    order: 1;
     z-index: 1101;
 }
 
@@ -78,9 +78,6 @@ body {
 
 /* Texto del logo */
 .logo-text {
-    order: 3;
-    width: 100%;
-    text-align: center;
     font-size: 1.2rem;
     color: var(--morado);
     text-decoration: none;
@@ -90,11 +87,13 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     z-index: 1101;
+    text-align: center;
+    flex: 1 1 100%;
+    order: 3;
 }
 
 /* Menú hamburguesa - SOLO VISIBLE EN MÓVIL */
 .menu-toggle {
-    order: 2;
     display: none;
     background: none;
     border: none;
@@ -103,12 +102,10 @@ body {
     cursor: pointer;
     padding: 0.5rem;
     z-index: 1101;
-    margin-left: auto;
 }
 
-/* Navegación - OCULTA EN MÓVIL */
+/* Navegación */
 .nav {
-    order: 4;
     display: none;
     width: 100%;
     flex-direction: column;
@@ -137,25 +134,27 @@ body {
 @media (min-width: 769px) {
     .header {
         flex-wrap: nowrap;
-        position: sticky;
         padding: 1rem 2rem;
     }
-    
+
     .menu-toggle {
         display: none !important;
     }
-    
+
+    .logo-img img {
+        height: 50px;
+    }
+
     .logo-text {
         order: 2;
-        width: auto;
-        padding: 0 1rem;
+        flex: 1;
         text-align: left;
-        flex-grow: 1;
+        padding-left: 1rem;
     }
-    
+
     .nav {
-        order: 3;
         display: flex !important;
+        order: 3;
         flex-direction: row;
         width: auto;
         background-color: transparent;
@@ -163,15 +162,11 @@ body {
         position: static;
         box-shadow: none;
     }
-    
+
     .nav a {
         margin-left: 1.5rem;
         padding: 0.5rem 0;
         border-bottom: none;
-    }
-    
-    .logo-img img {
-        height: 50px;
     }
 }
 
@@ -179,14 +174,20 @@ body {
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
+        order: 2;
+        margin-left: auto;
     }
-    
+
     .nav a {
         display: none;
     }
-    
+
     .nav.show a {
         display: block;
+    }
+
+    .logo-text {
+        order: 3;
     }
 }
 
@@ -270,6 +271,7 @@ body {
     .footer {
         padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
     }
+
     body {
         padding-top: calc(60px + env(safe-area-inset-top));
     }

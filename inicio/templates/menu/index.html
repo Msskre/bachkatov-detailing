@@ -2,28 +2,27 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>BACHKATOV Detailing Premium</title>
-    <link rel="stylesheet" href="{% static 'inicio/css/styles.css' %}">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bachkatov Detailing</title>
+  <link rel="stylesheet" href="{% static 'inicio/css/estilos.css' %}" />
 </head>
 <body>
-    <header class="header">
-        <div class="logo-img">
-            <a href="/">
-                <img src="{% static 'inicio/img/logo.detailing.png' %}" alt="Logo" />
-            </a>
-        </div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
-        <a href="/" class="logo-text">Bachkatov Detailing</a>
-        <nav class="nav" id="mainNav">
-            <a href="/">Inicio</a>
-            <a href="{% url 'servicios' %}">Servicios</a>
-            <a href="{% url 'galeria' %}">Galería</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
-    </header>
+  <header class="header">
+    <div class="logo-img">
+      <a href="/">
+        <img src="{% static 'inicio/img/logo.detailing.png' %}" alt="Logo" />
+      </a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+    <a href="/" class="logo-text">Bachkatov Detailing</a>
+    <nav class="nav" id="mainNav">
+      <a href="/">Inicio</a>
+      <a href="{% url 'servicios' %}">Servicios</a>
+      <a href="{% url 'galeria' %}">Galería</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
     
     <section class="hero">
         <div class="hero-content fade-in">
@@ -115,18 +114,20 @@
                 appearOnScroll.observe(fader);
             });
 
-            // Menú hamburguesa mejorado
+        document.addEventListener('DOMContentLoaded', function () {
             const menuToggle = document.getElementById('menuToggle');
-            const mainNav = document.getElementById('mainNav');
-            
-            if (menuToggle && mainNav) {
-                menuToggle.addEventListener('click', function() {
-                    mainNav.classList.toggle('show');
-                    this.textContent = mainNav.classList.contains('show') ? '✕' : '☰';
+            const nav = document.getElementById('mainNav');
+          
+            menuToggle.addEventListener('click', () => {
+                nav.classList.toggle('show');
+            });
+          
+                // Cerrar menú al hacer clic en un enlace (opcional)
+            document.querySelectorAll('.nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('show');
                 });
-            } else {
-                console.error('Elementos del menú no encontrados');
-            }
+            });
         });
      
         function copiarCorreo() {
