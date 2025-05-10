@@ -44,13 +44,11 @@
             <div class="price-selector">
                 <label for="vehicle-type-1">Tipo de vehículo:</label>
                 <select id="vehicle-type-1" class="vehicle-selector" data-service="exterior">
-                    <option value="compacto">Compacto</option>
-                    <option value="sedan">Sedán</option>
-                    <option value="suv">SUV</option>
-                    <option value="camioneta">Camioneta</option>
+                    <option value="auto">Auto</option>
+                    <option value="camioneta">Camioneta / SUV</option>
                 </select>
                 <div class="price-display">
-                    Precio: <span class="service-price">$500</span>
+                    Precio: <span class="service-price">$20.000</span>
                 </div>
             </div>
         </div>
@@ -76,13 +74,11 @@
             <div class="price-selector">
                 <label for="vehicle-type-2">Tipo de vehículo:</label>
                 <select id="vehicle-type-2" class="vehicle-selector" data-service="interior">
-                    <option value="compacto">Compacto</option>
-                    <option value="sedan">Sedán</option>
-                    <option value="suv">SUV</option>
-                    <option value="camioneta">Camioneta</option>
+                    <option value="auto">Auto</option>
+                    <option value="camioneta">Camioneta / SUV</option>
                 </select>
                 <div class="price-display">
-                    Precio: <span class="service-price">$450</span>
+                    Precio: <span class="service-price">$25.000</span>
                 </div>
             </div>
         </div>
@@ -104,13 +100,11 @@
             <div class="price-selector">
                 <label for="vehicle-type-3">Tipo de vehículo:</label>
                 <select id="vehicle-type-3" class="vehicle-selector" data-service="basico">
-                    <option value="compacto">Compacto</option>
-                    <option value="sedan">Sedán</option>
-                    <option value="suv">SUV</option>
-                    <option value="camioneta">Camioneta</option>
+                    <option value="auto">Auto</option>
+                    <option value="camioneta">Camioneta / SUV</option>
                 </select>
                 <div class="price-display">
-                    Precio: <span class="service-price">$300</span>
+                    Precio: <span class="service-price">$15.000</span>
                 </div>
             </div>
         </div>
@@ -155,22 +149,16 @@
         // Precios por servicio y tipo de vehículo
         const servicePrices = {
             "exterior": {
-                "compacto": "$500",
-                "sedan": "$600",
-                "suv": "$700",
+                "auto": "$20.000",
                 "camioneta": "$800"
             },
             "interior": {
-                "compacto": "$450",
-                "sedan": "$550",
-                "suv": "$650",
-                "camioneta": "$750"
+                "auto": "$25.000",
+                "camioneta": "$30.000"
             },
             "basico": {
-                "compacto": "$300",
-                "sedan": "$350",
-                "suv": "$400",
-                "camioneta": "$450"
+                "auto": "$15.000",
+                "camioneta": "$20.000"
             }
         };
 
