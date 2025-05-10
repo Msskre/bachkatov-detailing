@@ -41,6 +41,18 @@
             </strong>
             <br>
             <p><em>El resultado es un brillo profundo, tacto suave y una pintura protegida del desgaste ambiental.</em></p>
+            <div class="price-selector">
+                <label for="vehicle-type-1">Tipo de vehículo:</label>
+                <select id="vehicle-type-1" class="vehicle-selector" data-service="exterior">
+                    <option value="compacto">Compacto</option>
+                    <option value="sedan">Sedán</option>
+                    <option value="suv">SUV</option>
+                    <option value="camioneta">Camioneta</option>
+                </select>
+                <div class="price-display">
+                    Precio: <span class="service-price">$500</span>
+                </div>
+            </div>
         </div>
     
         <div class="servicio-card">
@@ -61,6 +73,18 @@
             </strong>
             <br>
             <p><em>Este servicio elimina suciedad acumulada, malos olores y devuelve el confort y frescura originales del habitáculo.</em></p>
+            <div class="price-selector">
+                <label for="vehicle-type-2">Tipo de vehículo:</label>
+                <select id="vehicle-type-2" class="vehicle-selector" data-service="interior">
+                    <option value="compacto">Compacto</option>
+                    <option value="sedan">Sedán</option>
+                    <option value="suv">SUV</option>
+                    <option value="camioneta">Camioneta</option>
+                </select>
+                <div class="price-display">
+                    Precio: <span class="service-price">$450</span>
+                </div>
+            </div>
         </div>
     
         <div class="servicio-card">
@@ -77,6 +101,18 @@
             </strong>
             <br>
             <p><em>Es un servicio rápido, seguro y eficaz para quienes desean mantener su auto en buen estado sin necesidad de un tratamiento profundo.</em></p>
+            <div class="price-selector">
+                <label for="vehicle-type-3">Tipo de vehículo:</label>
+                <select id="vehicle-type-3" class="vehicle-selector" data-service="basico">
+                    <option value="compacto">Compacto</option>
+                    <option value="sedan">Sedán</option>
+                    <option value="suv">SUV</option>
+                    <option value="camioneta">Camioneta</option>
+                </select>
+                <div class="price-display">
+                    Precio: <span class="service-price">$300</span>
+                </div>
+            </div>
         </div>
     </section>
     
@@ -115,5 +151,39 @@
         }); 
     </script>
      
+    <script>
+        // Precios por servicio y tipo de vehículo
+        const servicePrices = {
+            "exterior": {
+                "compacto": "$500",
+                "sedan": "$600",
+                "suv": "$700",
+                "camioneta": "$800"
+            },
+            "interior": {
+                "compacto": "$450",
+                "sedan": "$550",
+                "suv": "$650",
+                "camioneta": "$750"
+            },
+            "basico": {
+                "compacto": "$300",
+                "sedan": "$350",
+                "suv": "$400",
+                "camioneta": "$450"
+            }
+        };
+
+        // Actualizar precios al cambiar el selector
+        document.querySelectorAll('.vehicle-selector').forEach(select => {
+            select.addEventListener('change', function() {
+                const serviceType = this.getAttribute('data-service');
+                const vehicleType = this.value;
+                const priceElement = this.closest('.servicio-card').querySelector('.service-price');
+                
+                priceElement.textContent = servicePrices[serviceType][vehicleType];
+            });
+        });
+    </script>
 </body>
 </html>

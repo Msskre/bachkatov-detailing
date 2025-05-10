@@ -551,3 +551,39 @@ body {
     padding: 1.5rem 1rem;
     font-size: 0.8rem;
 }
+
+/* Selector de precios en los servicios */
+.price-selector {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.price-selector label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #1a1a1a;
+}
+
+.price-selector select {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #1a1a1a;
+    background-color: #f8f8f8;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+
+.price-display {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1a1a1a;
+}
+
+.service-price {
+    color: #1a1a1a;
+}
