@@ -25,7 +25,35 @@
     </header>
 
     <section class="seccion-servicios fade-in">
-        <p><em>“Las descripciones son orientativas. Nuestros servicios pueden incluir otros detalles según las necesidades del vehículo.”</em></p>
+        <p><strong><em>“Las descripciones son orientativas. Nuestros servicios pueden incluir otros detalles según las necesidades del vehículo.”</em></strong></p>
+        <div id="lavado-basico" class="servicio-card">
+            <h3><strong>Lavado Básico</strong></h3>
+            <p><em>Ideal para mantener tu auto en buen estado de forma rápida:</em></p>
+            <br>
+            <strong>
+            <p>- Lavado exterior a mano con productos neutros</p>
+            <p>- Limpieza de llantas</p>
+            <p>- Limpieza de vidrios</p>
+            <p>- Secado con microfibra</p>
+            <p>- Aspirado del interior</p>
+            <p>- Limpieza de polvo superficial del interior</p>
+            </strong>
+            <br>
+            <p><em>Es un servicio rápido, seguro y eficaz para quienes desean mantener su auto en buen estado sin necesidad de un tratamiento profundo.</em></p>
+            <div class="price-selector">
+                <label for="vehicle-type-3">Tipo de vehículo:</label>
+                <select id="vehicle-type-3" class="vehicle-selector" data-service="basico">
+                    <option value="auto">Autos (Compactos / Hatchbacks / Sedanes)</option>
+                    <option value="camioneta">Camionetas / SUVs</option>
+                </select>
+                <div class="price-display">
+                    Precio: <span class="service-price">$15.000</span>
+                </div>
+            </div>
+            <p><em>“Los precios pueden variar levemente según el tamaño o estado del vehículo.”</em></p>
+        </div>
+        
+
         <div id="detailing-exterior" class="servicio-card">
             <h3><strong>Detailing Exterior</strong></h3>
             <p><em>El detailing exterior es una técnica de limpieza y acondicionamiento avanzado de la carrocería del vehículo. Va más allá de un lavado común:</em></p>
@@ -80,33 +108,6 @@
                 </select>
                 <div class="price-display">
                     Precio: <span class="service-price">$25.000</span>
-                </div>
-            </div>
-            <p><em>“Los precios pueden variar levemente según el tamaño o estado del vehículo.”</em></p>
-        </div>
-    
-        <div id="lavado-basico" class="servicio-card">
-            <h3><strong>Lavado Básico</strong></h3>
-            <p><em>Ideal para mantener tu auto en buen estado de forma rápida:</em></p>
-            <br>
-            <strong>
-            <p>- Lavado exterior a mano con productos neutros</p>
-            <p>- Limpieza de llantas</p>
-            <p>- Limpieza de vidrios</p>
-            <p>- Secado con microfibra</p>
-            <p>- Aspirado del interior</p>
-            <p>- Limpieza de polvo superficial del interior</p>
-            </strong>
-            <br>
-            <p><em>Es un servicio rápido, seguro y eficaz para quienes desean mantener su auto en buen estado sin necesidad de un tratamiento profundo.</em></p>
-            <div class="price-selector">
-                <label for="vehicle-type-3">Tipo de vehículo:</label>
-                <select id="vehicle-type-3" class="vehicle-selector" data-service="basico">
-                    <option value="auto">Autos (Compactos / Hatchbacks / Sedanes)</option>
-                    <option value="camioneta">Camionetas / SUVs</option>
-                </select>
-                <div class="price-display">
-                    Precio: <span class="service-price">$15.000</span>
                 </div>
             </div>
             <p><em>“Los precios pueden variar levemente según el tamaño o estado del vehículo.”</em></p>
@@ -221,7 +222,7 @@
             "basico": {
                 "auto": "$15.000",
                 "camioneta": "$20.000"
-            }
+            },
             "completo": {
                 "auto": "$35.000",
                 "camioneta": "$40.000"
