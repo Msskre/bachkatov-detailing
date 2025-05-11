@@ -227,6 +227,22 @@ body {
     opacity: 1;
 }
 
+.servicio-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.servicio-card li {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.servicio-card a {
+    color: var(--morado);
+    text-decoration: none;
+    font-weight: bold;
+}
+
 /* Galería invitacion index */
 .galeria-invitacion {
     background-color: #1a1a1a;
