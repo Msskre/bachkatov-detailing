@@ -25,8 +25,8 @@
     </header>
 
     <section class="seccion-servicios fade-in">
-    
-        <div class="servicio-card">
+        <p><em>“Las descripciones son orientativas. Nuestros servicios pueden incluir otros detalles según las necesidades del vehículo.”</em></p>
+        <div id="detailing-exterior" class="servicio-card">
             <h3><strong>Detailing Exterior</strong></h3>
             <p><em>El detailing exterior es una técnica de limpieza y acondicionamiento avanzado de la carrocería del vehículo. Va más allá de un lavado común:</em></p>
             <br>
@@ -44,16 +44,17 @@
             <div class="price-selector">
                 <label for="vehicle-type-1">Tipo de vehículo:</label>
                 <select id="vehicle-type-1" class="vehicle-selector" data-service="exterior">
-                    <option value="auto">Auto</option>
-                    <option value="camioneta">Camioneta / SUV</option>
+                    <option value="auto">Autos (Compactos / Hatchbacks / Sedanes)</option>
+                    <option value="camioneta">Camionetas / SUVs</option>
                 </select>
                 <div class="price-display">
                     Precio: <span class="service-price">$20.000</span>
                 </div>
             </div>
+            <p><em>“Los precios pueden variar levemente según el tamaño o estado del vehículo.”</em></p>
         </div>
     
-        <div class="servicio-card">
+        <div id="detailing-interior" class="servicio-card">
             <h3><strong>Detailing Interior</strong></h3>
             <p><em>El detailing interior es un proceso profundo de limpieza, restauración y protección de todas las superficies del interior del vehículo. Incluye:</em></p>
             <br>
@@ -74,16 +75,17 @@
             <div class="price-selector">
                 <label for="vehicle-type-2">Tipo de vehículo:</label>
                 <select id="vehicle-type-2" class="vehicle-selector" data-service="interior">
-                    <option value="auto">Auto</option>
-                    <option value="camioneta">Camioneta / SUV</option>
+                    <option value="auto">Autos (Compactos / Hatchbacks / Sedanes)</option>
+                    <option value="camioneta">Camionetas / SUVs</option>
                 </select>
                 <div class="price-display">
                     Precio: <span class="service-price">$25.000</span>
                 </div>
             </div>
+            <p><em>“Los precios pueden variar levemente según el tamaño o estado del vehículo.”</em></p>
         </div>
     
-        <div class="servicio-card">
+        <div id="lavado-basico" class="servicio-card">
             <h3><strong>Lavado Básico</strong></h3>
             <p><em>Ideal para mantener tu auto en buen estado de forma rápida:</em></p>
             <br>
@@ -100,13 +102,74 @@
             <div class="price-selector">
                 <label for="vehicle-type-3">Tipo de vehículo:</label>
                 <select id="vehicle-type-3" class="vehicle-selector" data-service="basico">
-                    <option value="auto">Auto</option>
-                    <option value="camioneta">Camioneta / SUV</option>
+                    <option value="auto">Autos (Compactos / Hatchbacks / Sedanes)</option>
+                    <option value="camioneta">Camionetas / SUVs</option>
                 </select>
                 <div class="price-display">
                     Precio: <span class="service-price">$15.000</span>
                 </div>
             </div>
+            <p><em>“Los precios pueden variar levemente según el tamaño o estado del vehículo.”</em></p>
+        </div>
+
+        <div id="detailing-completo" class="servicio-card">
+            <h3><strong>Detailing Completo</strong></h3>
+            <p><em>Inlcuye todo lo del apartado de detailing interior y detailing exterior</em></p>
+            <br>
+            <strong>
+                <p>- Prelavado con shampoo y/o APC</p>
+                <p>- Descontaminación de pintura</p>
+                <p>- Descontaminación férrica en llantas</p>
+                <p>- Limpieza de llantas con cepillos y brochas</p>
+                <p>- Limpieza de paso de rueda</p>
+                <p>- Limpieza de detalles: insignias, marcos, logos, zonas bajas</p>
+                <p>- Hidratación de plasticos exteriores y protección UV</p>
+                <p>- Aspirado completo + boquillas</p>
+                <p>- Uso de brochas para limpieza de plasticos</p>
+                <p>- Soltar y levantar polvo con taladro (Punta de cepillo)</p>
+                <p>- Limpieza de alfombras</p>
+                <p>- Limpieza de tapizados con APC</p>
+                <p>- Descontaminación de plásticos</p>
+                <p>- Hidratación de plásticos con acondicionador</p>
+                <p>- Uso de esponjas de microfibra</p>
+                <p>- Limpieza de detalles: costuras, botones, zonas difíciles</p>
+                <p>- Asientos de cuero: limpieza + acondicionador</p>
+            </strong>
+            <br>
+            <p><em>Es un servicio profundo tanto por fuera como por dentro para quienes desean mantener su auto en buen estado con un tratamiento completo.</em></p>
+            <div class="price-selector">
+                <label for="vehicle-type-4">Tipo de vehículo:</label>
+                <select id="vehicle-type-4" class="vehicle-selector" data-service="completo">
+                    <option value="auto">Autos (Compactos / Hatchbacks / Sedanes)</option>
+                    <option value="camioneta">Camionetas / SUVs</option>
+                </select>
+                <div class="price-display">
+                    Precio: <span class="service-price">$35.000</span>
+                </div>
+            </div>
+            <p><em>“Los precios pueden variar levemente según el tamaño o estado del vehículo.”</em></p>
+        </div>
+
+        <div class="servicio-card">
+            <h3><strong>Personalizado</strong></h3>
+            <p><em>Elije tú el servicio que necestias</em></p>
+            <br>
+            <strong>
+                <p>Si necesitas un servicio personalizado, háblanos para cotizar!</p>
+            </strong>
+                <p>(Ejemplo: Necesito solo lavado básico por fuera para un sedán.)</p>
+            <ul>
+                <li>
+                    <strong>WhatsApp:</strong>
+                    <a href="https://wa.me/56984577355" target="_blank">Envíanos un mensaje por WhatsApp</a>
+                </li>
+                <li>
+                    <strong>Instagram:</strong>
+                    <a href="https://www.instagram.com/bachkatov.detailing/?hl=es-la" target="_blank">Envíanos un mensaje por Instagram</a>
+                </li>
+            </ul>
+            <br>
+            <p><em>“Para cualquier consulta, no dudes en contactarnos!”</em></p>
         </div>
     </section>
     
@@ -158,6 +221,10 @@
             "basico": {
                 "auto": "$15.000",
                 "camioneta": "$20.000"
+            }
+            "completo": {
+                "auto": "$35.000",
+                "camioneta": "$40.000"
             }
         };
 
