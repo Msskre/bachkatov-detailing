@@ -243,6 +243,11 @@ body {
     font-weight: bold;
 }
 
+.contacto a:hover {
+    color: #500c91;
+    text-decoration: underline;
+}
+
 /* Galería invitacion index */
 .galeria-invitacion {
     background-color: #1a1a1a;
