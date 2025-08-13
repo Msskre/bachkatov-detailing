@@ -60,7 +60,7 @@ a {
 /* Hero */
 .hero {
     height: 80vh;
-    background: linear-gradient(rgba(43, 10, 61, 0.8), rgba(43, 10, 61, 0.8)), url('../img/hero.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(43, 10, 61, 0.8), rgba(43, 10, 61, 0.8)), url('../img/elegante.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
