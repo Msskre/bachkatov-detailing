@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'unsafe-default-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['bachkatov-detailing.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['b-detailing.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -61,6 +61,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
