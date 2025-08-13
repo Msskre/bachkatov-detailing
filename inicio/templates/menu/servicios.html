@@ -1,245 +1,30 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BACHKATOV Detailing Premium</title>
-    <link rel="stylesheet" href="{% static 'inicio/css/styles.css' %}">
-</head>
-<body>
-    <header class="header">
-        <div class="header-section logo-img">
-            <a href="/">
-                <img src="{% static 'inicio/img/logo.detailing.png' %}" alt="Logo" />
-            </a>
-        </div>
-        <a href="/" class="header-section logo-text">Bachkatov Detailing</a>
-        <nav class="header-section nav">
-            <a href="/">Inicio</a>
-            <a href="{% url 'servicios' %}">Servicios</a>
-            <a href="{% url 'galeria' %}">Galería</a>
-            <a href="{% url 'index' %}#contacto">Contacto</a>
-        </nav>
-    </header>
+{% extends 'base.html' %}
 
-    <section class="seccion-servicios">
-        <p><strong><em>“Las descripciones son orientativas. Nuestros servicios pueden incluir otros detalles según las necesidades del vehículo.”</em></strong></p>
-        <div class="servicio-card fade-in">
-            <h3><strong>Lavado Básico</strong></h3>
-            <p><em>Ideal para mantener tu auto en buen estado de forma rápida:</em></p>
-            <br>
-            <strong>
-            <p>- Lavado exterior a mano con productos neutros</p>
-            <p>- Limpieza de llantas</p>
-            <p>- Limpieza de vidrios</p>
-            <p>- Secado con microfibra</p>
-            <p>- Aspirado del interior</p>
-            <p>- Limpieza de polvo superficial del interior</p>
-            </strong>
-            <br>
-            <p><em>Es un servicio rápido, seguro y eficaz para quienes desean mantener su auto en buen estado sin necesidad de un tratamiento profundo.</em></p>
-            <div class="price-selector">
-                <label for="vehicle-type-3">Tipo de vehículo:</label>
-                <select id="vehicle-type-3" class="vehicle-selector" data-service="basico">
-                    <option value="auto">Autos (Compactos / Hatchbacks / Sedanes)</option>
-                    <option value="camioneta">Camionetas / SUVs</option>
-                </select>
-                <div class="price-display">
-                    Precio: <span class="service-price">$15.000</span>
-                </div>
-            </div>
-            <p><em>“Los precios pueden variar levemente según el tamaño o estado del vehículo.”</em></p>
+{% block title %}Servicios - Bachkatov Detailing{% endblock %}
+
+{% block content %}
+<section class="services-page">
+    <h1>Nuestros Servicios</h1>
+    <p>Ofrecemos tratamientos profesionales de detailing para tu vehículo.</p>
+
+    <div class="service-list">
+        <div class="service-item">
+            <h3>Pulido y Corrección</h3>
+            <p>Eliminamos micro-rayas y devolvemos el brillo original de la pintura.</p>
+            <span class="price">Desde $50.000</span>
         </div>
         
-
-        <div class="servicio-card fade-in">
-            <h3><strong>Detailing Exterior</strong></h3>
-            <p><em>El detailing exterior es una técnica de limpieza y acondicionamiento avanzado de la carrocería del vehículo. Va más allá de un lavado común:</em></p>
-            <br>
-            <strong>
-                <p>- Prelavado con shampoo y/o APC</p>
-                <p>- Descontaminación de pintura</p>
-                <p>- Descontaminación férrica en llantas</p>
-                <p>- Limpieza de llantas con cepillos y brochas</p>
-                <p>- Limpieza de paso de rueda</p>
-                <p>- Limpieza de detalles: insignias, marcos, logos, zonas bajas</p>
-                <p>- Hidratación de plasticos exteriores y protección UV</p>
-            </strong>
-            <br>
-            <p><em>El resultado es un brillo profundo, tacto suave y una pintura protegida del desgaste ambiental.</em></p>
-            <div class="price-selector">
-                <label for="vehicle-type-1">Tipo de vehículo:</label>
-                <select id="vehicle-type-1" class="vehicle-selector" data-service="exterior">
-                    <option value="auto">Autos (Compactos / Hatchbacks / Sedanes)</option>
-                    <option value="camioneta">Camionetas / SUVs</option>
-                </select>
-                <div class="price-display">
-                    Precio: <span class="service-price">$20.000</span>
-                </div>
-            </div>
-            <p><em>“Los precios pueden variar levemente según el tamaño o estado del vehículo.”</em></p>
+        <div class="service-item">
+            <h3>Protección Cerámica</h3>
+            <p>Capa protectora que mantiene la pintura como nueva por años.</p>
+            <span class="price">Desde $120.000</span>
         </div>
-    
-        <div class="servicio-card fade-in">
-            <h3><strong>Detailing Interior</strong></h3>
-            <p><em>El detailing interior es un proceso profundo de limpieza, restauración y protección de todas las superficies del interior del vehículo. Incluye:</em></p>
-            <br>
-            <strong>
-            <p>- Aspirado completo + boquillas</p>
-            <p>- Uso de brochas para limpieza de plasticos</p>
-            <p>- Soltar y levantar polvo con taladro (Punta de cepillo)</p>
-            <p>- Limpieza de alfombras</p>
-            <p>- Limpieza de tapizados con APC</p>
-            <p>- Descontaminación de plásticos</p>
-            <p>- Hidratación de plásticos con acondicionador</p>
-            <p>- Uso de esponjas de microfibra</p>
-            <p>- Limpieza de detalles: costuras, botones, zonas difíciles</p>
-            <p>- Asientos de cuero: limpieza + acondicionador</p>
-            </strong>
-            <br>
-            <p><em>Este servicio elimina suciedad acumulada, malos olores y devuelve el confort y frescura originales del habitáculo.</em></p>
-            <div class="price-selector">
-                <label for="vehicle-type-2">Tipo de vehículo:</label>
-                <select id="vehicle-type-2" class="vehicle-selector" data-service="interior">
-                    <option value="auto">Autos (Compactos / Hatchbacks / Sedanes)</option>
-                    <option value="camioneta">Camionetas / SUVs</option>
-                </select>
-                <div class="price-display">
-                    Precio: <span class="service-price">$25.000</span>
-                </div>
-            </div>
-            <p><em>“Los precios pueden variar levemente según el tamaño o estado del vehículo.”</em></p>
+        
+        <div class="service-item">
+            <h3>Detailing Interior</h3>
+            <p>Limpieza profunda y desinfección de alfombras, tapicería y plásticos.</p>
+            <span class="price">Desde $40.000</span>
         </div>
-
-        <div class="servicio-card fade-in">
-            <h3><strong>Detailing Completo</strong></h3>
-            <p><em>Inlcuye todo lo del apartado de detailing interior y detailing exterior</em></p>
-            <br>
-            <strong>
-                <p>- Prelavado con shampoo y/o APC</p>
-                <p>- Descontaminación de pintura</p>
-                <p>- Descontaminación férrica en llantas</p>
-                <p>- Limpieza de llantas con cepillos y brochas</p>
-                <p>- Limpieza de paso de rueda</p>
-                <p>- Limpieza de detalles: insignias, marcos, logos, zonas bajas</p>
-                <p>- Hidratación de plasticos exteriores y protección UV</p>
-                <p>- Aspirado completo + boquillas</p>
-                <p>- Uso de brochas para limpieza de plasticos</p>
-                <p>- Soltar y levantar polvo con taladro (Punta de cepillo)</p>
-                <p>- Limpieza de alfombras</p>
-                <p>- Limpieza de tapizados con APC</p>
-                <p>- Descontaminación de plásticos</p>
-                <p>- Hidratación de plásticos con acondicionador</p>
-                <p>- Uso de esponjas de microfibra</p>
-                <p>- Limpieza de detalles: costuras, botones, zonas difíciles</p>
-                <p>- Asientos de cuero: limpieza + acondicionador</p>
-            </strong>
-            <br>
-            <p><em>Es un servicio profundo tanto por fuera como por dentro para quienes desean mantener su auto en un estado impoluto con un tratamiento completo.</em></p>
-            <div class="price-selector">
-                <label for="vehicle-type-4">Tipo de vehículo:</label>
-                <select id="vehicle-type-4" class="vehicle-selector" data-service="completo">
-                    <option value="auto">Autos (Compactos / Hatchbacks / Sedanes)</option>
-                    <option value="camioneta">Camionetas / SUVs</option>
-                </select>
-                <div class="price-display">
-                    Precio: <span class="service-price">$35.000</span>
-                </div>
-            </div>
-            <p><em>“Los precios pueden variar levemente según el tamaño o estado del vehículo.”</em></p>
-        </div>
-
-        <div class="servicio-card fade-in">
-            <h3><strong>Servicio Personalizado</strong></h3>
-            <p><em>Elije tú el servicio que necesitas</em></p>
-            <br>
-            <strong>
-                <p>Si necesitas un servicio personalizado, háblanos para cotizar!</p>
-            </strong>
-                <p>(Ejemplo: Necesito solo lavado básico por fuera para un sedán.)</p>
-            <br>
-            <ul>
-                <li>
-                    <strong>WhatsApp:</strong>
-                    <a href="https://wa.me/56984577355" target="_blank">Envíanos un mensaje por WhatsApp</a>
-                </li>
-                <li>
-                    <strong>Instagram:</strong>
-                    <a href="https://www.instagram.com/bachkatov.detailing/?hl=es-la" target="_blank">Envíanos un mensaje por Instagram</a>
-                </li>
-            </ul>
-            <br>
-            <p><em>Para cualquier consulta, no dudes en contactarnos!</em></p>
-        </div>
-    </section>
-    
-    <footer class="footer fade-in">
-        <p>© 2025 Bachkatov Detailing | Todos los derechos reservados | El arte del detailing.</p>
-        <br>
-        <p>Diseñado por Dimitri Bachkatov</p>
-        <a href="https://www.instagram.com/d.n.b.d_/?hl=es-la" target="_blank" aria-label="Instagram">
-            <img src="{% static 'inicio/img/Instagram_icon.png' %}" alt="Instagram" class="instagram-img">
-        </a>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const faders = document.querySelectorAll('.fade-in');
-    
-            const appearOptions = {
-                threshold: 0.2
-            };
-    
-            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) {
-                        return;
-                    } else {
-                        entry.target.classList.add('visible');
-                        appearOnScroll.unobserve(entry.target);
-                    }
-                });
-            }, appearOptions);
-    
-            faders.forEach(fader => {
-                appearOnScroll.observe(fader);
-            });
-        }); 
-    </script>
-     
-    <script>
-        // Precios por servicio y tipo de vehículo
-        const servicePrices = {
-            "exterior": {
-                "auto": "$20.000",
-                "camioneta": "$25.000"
-            },
-            "interior": {
-                "auto": "$25.000",
-                "camioneta": "$30.000"
-            },
-            "basico": {
-                "auto": "$15.000",
-                "camioneta": "$20.000"
-            },
-            "completo": {
-                "auto": "$35.000",
-                "camioneta": "$40.000"
-            }
-        };
-
-        // Actualizar precios al cambiar el selector
-        document.querySelectorAll('.vehicle-selector').forEach(select => {
-            select.addEventListener('change', function() {
-                const serviceType = this.getAttribute('data-service');
-                const vehicleType = this.value;
-                const priceElement = this.closest('.servicio-card').querySelector('.service-price');
-                
-                priceElement.textContent = servicePrices[serviceType][vehicleType];
-            });
-        });
-    </script>
-</body>
-</html>
+    </div>
+</section>
+{% endblock %}

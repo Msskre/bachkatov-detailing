@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Bachkatov Detailing{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar">
+        <div class="logo">
+            <a href="{% url 'home' %}">Bachkatov Detailing</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'servicios' %}">Servicios</a></li>
+                <li><a href="{% url 'galeria' %}">Portafolio</a></li>
+                <li><a href="{% url 'contacto' %}" class="btn-primary">Reserva ahora</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido dinámico -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer fade-in">
+        <p>© 2025 Bachkatov Detailing | Todos los derechos reservados | El arte del detailing.</p>
+        <br>
+        <p>Diseñado por Dimitri Bachkatov</p>
+        <a href="https://www.instagram.com/d.n.b.d_/?hl=es-la" target="_blank" aria-label="Instagram">
+            <img src="{% static 'inicio/img/Instagram_icon.png' %}" alt="Instagram" class="instagram-img">
+        </a>
+    </footer>
+</body>
+</html>

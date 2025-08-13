@@ -133,7 +133,7 @@ if not DEBUG:
 else:
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
-CSRF_TRUSTED_ORIGINS = ['https://bachkatov-detailing.onrender.com']
+CSRF_TRUSTED_ORIGINS = ['https://b-detailing.onrender.com']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
