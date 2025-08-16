@@ -11,15 +11,29 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="navbar">
-        <div class="logo">
-            <a href="{% url 'home' %}">Bachkatov Detailing</a>
+    <header class="header">
+        <div class="top-bar">
+            <div class="logo">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'inicio/img/logo.detailing.png' %}" alt="Bachkatov Detailing">
+                </a>
+            </div>
+            <div class="contact-info">
+                <img src="{% static 'inicio/img/whatsapp-icon.png' %}" alt="WhatsApp" class="whatsapp-icon">
+                <div>
+                    <p><a href="https://wa.me/56984577355" target="_blank">+56 9 8457 7355</a></p>
+                    <p><a href="https://wa.me/56991397498" target="_blank">+56 9 9139 7498</a></p>
+                </div>
+            </div>
         </div>
-        <nav>
+
+        <!-- Navbar -->
+        <nav class="navbar">
             <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'servicios' %}">Servicios</a></li>
-                <li><a href="{% url 'galeria' %}">Portafolio</a></li>
-                <li><a href="{% url 'contacto' %}" class="btn-primary">Reserva ahora</a></li>
+                <li><a href="{% url 'contacto' %}">Reserva tu hora</a></li>
+                <li><a href="{% url 'galeria' %}">Nuestros trabajos</a></li>
             </ul>
         </nav>
     </header>
@@ -30,8 +44,9 @@
     </main>
 
     <!-- Footer -->
-     <footer>
+    <footer>
         <p>© 2025 Bachkatov Detailing | Todos los derechos reservados | El arte del detailing.</p>
     </footer>
 </body>
 </html>
+

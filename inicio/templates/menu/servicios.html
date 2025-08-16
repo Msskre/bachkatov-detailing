@@ -1,30 +1,31 @@
 {% extends 'menu/base.html' %}
 {% load static %}
+
 {% block title %}Servicios - Bachkatov Detailing{% endblock %}
 
 {% block content %}
-    <section class="services-page">
+<section class="services-page">
+    <div class="services-header">
         <h1>Nuestros Servicios</h1>
-        <p>Ofrecemos tratamientos profesionales de detailing para tu vehículo.</p>
+        <p>Calidad y dedicación en cada detalle</p>
+    </div>
 
-        <div class="service-list">
-            <div class="service-item">
-                <h3>Pulido y Corrección</h3>
-                <p>Eliminamos micro-rayas y devolvemos el brillo original de la pintura.</p>
-                <span class="price">Desde $50.000</span>
-            </div>
-            
-            <div class="service-item">
-                <h3>Protección Cerámica</h3>
-                <p>Capa protectora que mantiene la pintura como nueva por años.</p>
-                <span class="price">Desde $120.000</span>
-            </div>
-            
-            <div class="service-item">
-                <h3>Detailing Interior</h3>
-                <p>Limpieza profunda y desinfección de alfombras, tapicería y plásticos.</p>
-                <span class="price">Desde $40.000</span>
-            </div>
+    <div class="service-cards">
+        <div class="card">
+            <img src="{% static 'servicios/img/interior.jpg' %}" alt="Detailing Interior">
+            <h3>Detailing Interior</h3>
+            <p>Limpieza y sanitización completa del interior de tu auto.</p>
         </div>
-    </section>
+        <div class="card">
+            <img src="{% static 'servicios/img/exterior.jpg' %}" alt="Detailing Exterior">
+            <h3>Detailing Exterior</h3>
+            <p>Restauramos el brillo y protección de la pintura.</p>
+        </div>
+        <div class="card">
+            <img src="{% static 'servicios/img/motor.jpg' %}" alt="Limpieza de motor">
+            <h3>Limpieza de Motor</h3>
+            <p>Tratamiento cuidadoso del motor para mayor durabilidad.</p>
+        </div>
+    </div>
+</section>
 {% endblock %}

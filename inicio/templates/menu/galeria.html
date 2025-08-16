@@ -1,17 +1,18 @@
 {% extends 'menu/base.html' %}
 {% load static %}
-{% block title %}Galeria - Bachkatov Detailing{% endblock %}
+
+{% block title %}Galería - Bachkatov Detailing{% endblock %}
 
 {% block content %}
-    <section class="services-page">
-        <h1>Nuestros Servicios</h1>
-        <p>Galeria</p>
+<section class="gallery-page">
+    <h1>Galería</h1>
+    <p>Algunos de nuestros mejores trabajos</p>
 
-        <div class="service-list">
-            <div class="service-item">
-                <h3>Galeria</h3>
-            </div>
-            
-        </div>
-    </section>
+    <div class="gallery-grid">
+        <img src="{% static 'inicio/img/despues7.jpg' %}" alt="Trabajo 1">
+        <img src="{% static 'inicio/img/despues3.jpg' %}" alt="Trabajo 2">
+        <img src="{% static 'inicio/img/despues1.jpg' %}" alt="Trabajo 3">
+        <img src="{% static 'inicio/img/despúes2.jpg' %}" alt="Trabajo 4">
+    </div>
+</section>
 {% endblock %}

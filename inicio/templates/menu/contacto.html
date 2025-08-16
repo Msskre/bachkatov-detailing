@@ -1,17 +1,18 @@
 {% extends 'menu/base.html' %}
 {% load static %}
+
 {% block title %}Contacto - Bachkatov Detailing{% endblock %}
 
 {% block content %}
-    <section class="services-page">
-        <h1>Nuestros Servicios</h1>
-        <p>Contacto</p>
+<section class="contact-page">
+    <h1>Contáctanos</h1>
+    <p>Escríbenos y agenda tu servicio</p>
 
-        <div class="service-list">
-            <div class="service-item">
-                <h3>Contacto</h3>
-            </div>
-            
-        </div>
-    </section>
+    <form class="contact-form">
+        <input type="text" placeholder="Nombre" required>
+        <input type="email" placeholder="Correo electrónico" required>
+        <textarea placeholder="Mensaje" rows="5" required></textarea>
+        <button type="submit" class="btn-primary">Enviar</button>
+    </form>
+</section>
 {% endblock %}

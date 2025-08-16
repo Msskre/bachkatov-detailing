@@ -4,34 +4,34 @@
 {% block title %}Inicio - Bachkatov Detailing{% endblock %}
 
 {% block content %}
-    <!-- Hero -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Brillo que perdura</h1>
-            <p>Detailing premium en [Tu ciudad]</p>
-            <a href="{% url 'contacto' %}" class="btn-primary">Reserva ahora</a>
-        </div>
-    </section>
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Brillo que perdura</h1>
+        <p>Detailing premium en [Tu ciudad]</p>
+        <a href="{% url 'contacto' %}" class="btn-primary">Reserva ahora</a>
+    </div>
+</section>
 
-    <!-- Servicios destacados -->
-    <section class="services-preview">
-        <h2>Nuestros servicios</h2>
-        <div class="service-cards">
-            <div class="card">
+<!-- Servicios destacados -->
+<section class="services-preview">
+    <h2>Nuestros servicios</h2>
+    <div class="service-cards">
+        <div class="card">
                 <img src="{% static 'inicio/img/antes1.jpg' %}" alt="Pulido">
                 <h3>Pulido y Corrección</h3>
                 <p>Eliminamos rayas y marcas para restaurar el brillo original.</p>
-            </div>
-            <div class="card">
-                <img src="{% static 'inicio/img/antes2.jpg' %}" alt="Cerámico">
-                <h3>Protección Cerámica</h3>
-                <p>Protege tu pintura hasta por 3 años con tecnología avanzada.</p>
-            </div>
-            <div class="card">
-                <img src="{% static 'inicio/img/antes3.jpg' %}" alt="Interior">
-                <h3>Detailing Interior</h3>
-                <p>Limpieza profunda y desinfección de cada rincón.</p>
-            </div>
         </div>
-    </section>
+        <div class="card">
+            <img src="{% static 'inicio/img/antes2.jpg' %}" alt="Cerámico">
+            <h3>Protección Cerámica</h3>
+            <p>Protege tu pintura hasta por 3 años con tecnología avanzada.</p>
+        </div>
+        <div class="card">
+            <img src="{% static 'inicio/img/antes3.jpg' %}" alt="Interior">
+            <h3>Detailing Interior</h3>
+            <p>Limpieza profunda y desinfección de cada rincón.</p>
+        </div>
+    </div>
+</section>
 {% endblock %}
