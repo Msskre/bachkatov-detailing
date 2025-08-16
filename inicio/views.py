@@ -1,10 +1,10 @@
 from django.shortcuts import render
 
-def base(request):
-    return render(request, 'menu/base.html')
-
 def home(request):
     return render(request, 'menu/home.html')
+
+def base(request):
+    return render(request, 'menu/base.html')
 
 def servicios(request):
     return render(request, 'menu/servicios.html')
