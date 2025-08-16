@@ -4,15 +4,103 @@
 {% block title %}Contacto - Bachkatov Detailing{% endblock %}
 
 {% block content %}
-<section class="contact-page">
-    <h1>Contáctanos</h1>
-    <p>Escríbenos y agenda tu servicio</p>
-
-    <form class="contact-form">
-        <input type="text" placeholder="Nombre" required>
-        <input type="email" placeholder="Correo electrónico" required>
-        <textarea placeholder="Mensaje" rows="5" required></textarea>
-        <button type="submit" class="btn-primary">Enviar</button>
-    </form>
+<section class="contact-section">
+    <div class="contact-container">
+        <!-- Información de contacto -->
+        <div class="contact-info">
+            <h2>Contáctanos</h2>
+            <p>Estamos aquí para responder cualquier pregunta que tengas sobre nuestros servicios de detailing. ¡Escríbenos!</p>
+            
+            <div class="contact-details">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Dirección</h3>
+                        <p>[Tu dirección aquí]</p>
+                        <p>[Ciudad, Región]</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Teléfonos</h3>
+                        <p><a href="https://wa.me/56984577355">+56 9 8457 7355</a></p>
+                        <p><a href="https://wa.me/56991397498">+56 9 9139 7498</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Email</h3>
+                        <p><a href="mailto:contacto@bachkatovdetailing.cl">contacto@bachkatovdetailing.cl</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Horario de atención</h3>
+                        <p>Lunes a Viernes: 9:00 - 19:00 hrs</p>
+                        <p>Sábados: 10:00 - 15:00 hrs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Formulario de contacto -->
+        <div class="contact-form-container">
+            <h2>Envíanos un mensaje</h2>
+            <form class="contact-form" method="post" id="contactForm">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="name">Nombre completo</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Teléfono</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="service">Servicio de interés</label>
+                    <select id="service" name="service" class="form-control" required>
+                        <option value="" disabled selected>Selecciona un servicio</option>
+                        <option value="pulido">Pulido y Corrección</option>
+                        <option value="ceramico">Protección Cerámica</option>
+                        <option value="interior">Detailing Interior</option>
+                        <option value="completo">Detailing Completo</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" class="form-control" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Enviar mensaje
+                </button>
+            </form>
+        </div>
+    </div>
 </section>
+
 {% endblock %}
