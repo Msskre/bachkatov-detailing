@@ -144,3 +144,18 @@ if not DEBUG:
     SECURE_HSTS_SECONDS = 31536000  # 1 year
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
+
+# 📩 Configuración de correo con Gmail
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+# 👇 Pon tu Gmail aquí
+EMAIL_HOST_USER = "bachkatov.detailing@gmail.com"
+
+# 👇 Aquí va la contraseña de aplicación (NO tu clave normal)
+EMAIL_HOST_PASSWORD = "zled ewvb rzgy pnbr"
+
+# Correo que se usará por defecto como remitente
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
