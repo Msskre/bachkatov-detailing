@@ -311,6 +311,7 @@ a {
     width: auto;
     opacity: 0.9;
     transition: opacity 0.3s ease;
+    justify-content: center; /* Centrado del logo */
 }
 
 .contact-logo img:hover {
