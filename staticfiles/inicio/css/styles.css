@@ -250,6 +250,7 @@ a {
     color: #cccccc;
     font-size: 1rem;
     line-height: 1.5;
+    order: 1; /* Asegura que el párrafo esté debajo del título */
 }
 
 .contact-info h2::after {
