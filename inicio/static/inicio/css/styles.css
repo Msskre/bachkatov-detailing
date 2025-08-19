@@ -238,6 +238,7 @@ a {
     color: white;
     position: relative;
     padding-bottom: 1rem;
+    display: block;
 }
 
 /* Texto debajo del título */
