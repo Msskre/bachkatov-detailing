@@ -300,22 +300,23 @@ a {
 
 /* Logo en contacto */
 .contact-logo {
-    margin-top: 2rem;
-    text-align: center;
-    padding-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
     border-top: 1px solid rgba(127, 63, 191, 0.3); /* Línea decorativa opcional */
 }
 
 .contact-logo img {
-    max-height: 80px; /* Ajusta según necesites */
-    width: auto;
-    opacity: 0.9;
-    transition: opacity 0.3s ease;
-    justify-content: center; /* Centrado del logo */
+    width: 90px; /* Ajusta según necesites */
+    height: auto;
+    opacity: 0.8;
+    transition: all 0.3s ease;
 }
 
 .contact-logo img:hover {
     opacity: 1;
+    transform: scale(1.05);
 }
 
 /* Formulario más ancho */
