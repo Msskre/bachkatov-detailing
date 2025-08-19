@@ -230,13 +230,16 @@ a {
     border: 1px solid rgba(127, 63, 191, 0.3);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     width: 80%; /* Achicado el contenedor */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .contact-info h2 {
     font-size: 2rem;
     margin-bottom: 0.5rem; /* Menos espacio debajo del título */
     color: white;
-    position: relative;
+    position: relative;   
     padding-bottom: 1rem;
     display: block;
 }
@@ -250,7 +253,6 @@ a {
     color: #cccccc;
     font-size: 1rem;
     line-height: 1.5;
-    order: 1; /* Asegura que el párrafo esté debajo del título */
 }
 
 .contact-info h2::after {
