@@ -298,6 +298,25 @@ a {
     color: #7F3FBF;
 }
 
+/* Logo en contacto */
+.contact-logo {
+    margin-top: 2rem;
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(127, 63, 191, 0.3); /* Línea decorativa opcional */
+}
+
+.contact-logo img {
+    max-height: 80px; /* Ajusta según necesites */
+    width: auto;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.contact-logo img:hover {
+    opacity: 1;
+}
+
 /* Formulario más ancho */
 .contact-form-container {
     background: white;
