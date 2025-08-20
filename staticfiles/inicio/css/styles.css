@@ -26,7 +26,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 80px;
+    padding: 15px 400px;
 }
 
 .logo img {
@@ -443,6 +443,7 @@ textarea.form-control {
 .lazy-img {
     opacity: 0;
     transition: opacity 0.3s ease;
+    background: #2B0A3D; /* Color de fondo mientras carga */
 }
 
 .lazy-img.loaded {
