@@ -17,7 +17,7 @@ a {
 
 /* HEADER */
 .header {
-    background: #0d1b2a; /* azul oscuro */
+    background: #0d1b2a;
     color: white;
     font-family: 'Montserrat', sans-serif;
 }
@@ -33,7 +33,7 @@ a {
     height: 60px;
 }
 
-.contact-info {
+.contact-header {
     display: flex;
     align-items: center;
     gap: 10px;
