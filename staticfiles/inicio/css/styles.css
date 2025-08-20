@@ -439,15 +439,106 @@ textarea.form-control {
     }
 }
 
-/* Lazy Loading para imágenes */
 .lazy-img {
     opacity: 0;
-    transition: opacity 0.3s ease;
-    background: #2B0A3D; /* Color de fondo mientras carga */
+    transition: opacity 0.5s ease-in-out;
+    
+    /* ESTILOS CRÍTICOS - Evitan que las imágenes colapsen */
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 200px; /* Altura mínima basada en tus cards */
+    
+    /* Efecto de carga elegante que combine con tu tema morado */
+    background: linear-gradient(
+        90deg, 
+        rgba(43, 10, 61, 0.7) 0%, 
+        rgba(74, 29, 107, 0.8) 50%, 
+        rgba(43, 10, 61, 0.7) 100%
+    );
+    background-size: 200% 100%;
+    animation: loadingShimmer 2s infinite;
+    
+    /* Bordes redondeados para que coincida con tu diseño */
+    border-radius: 10px;
 }
 
 .lazy-img.loaded {
     opacity: 1;
+    background: none; /* Quita el fondo cuando carga */
+    animation: none;
+}
+
+/* Animación de shimmer elegante */
+@keyframes loadingShimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ========================================== */
+/* ESTILOS ESPECÍFICOS PARA DIFERENTES USOS */
+/* ========================================== */
+
+/* Para imágenes en cards de servicios */
+.card .lazy-img {
+    min-height: 250px; /* Más alto para las cards */
+    object-fit: cover; /* Mantiene relación de aspecto */
+}
+
+/* Para imágenes en galería */
+.gallery-grid .lazy-img {
+    min-height: 300px; /* Alto para galería */
+    border-radius: 12px; /* Coincide con tu estilo de galería */
+}
+
+/* Para imágenes pequeñas (logos, iconos) */
+.lazy-img.small {
+    min-height: 60px;
+    background-size: 100% 100%;
+}
+
+/* ========================================== */
+/* RESPONSIVE - Ajustes para móviles */
+/* ========================================== */
+
+@media (max-width: 768px) {
+    .lazy-img {
+        min-height: 150px;
+    }
+    
+    .card .lazy-img {
+        min-height: 200px;
+    }
+    
+    .gallery-grid .lazy-img {
+        min-height: 250px;
+    }
+}
+
+/* ========================================== */
+/* ESTILOS DE RESPALDO PARA NAVEGADORES ANTIGUOS */
+/* ========================================== */
+
+/* Oculta completamente las imágenes sin src */
+img[src=""],
+img:not([src]) {
+    opacity: 0;
+    height: 0;
+}
+
+/* Asegura que las imágenes mantengan su espacio */
+.lazy-img-container {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de carga alternativo para navegadores sin animación */
+.no-cssanimations .lazy-img {
+    background: rgba(43, 10, 61, 0.9);
 }
 
 /* Footer */

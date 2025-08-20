@@ -11,37 +11,51 @@
 // 1. LAZY LOADING PARA IMÁGENES
 // ==================================
 function initLazyLoading() {
-    // Busca todas las imágenes con clase 'lazy-img'
+    console.log('🔄 Iniciando lazy loading...');
+    
+    // CORRECTO: Buscar por clase solamente
     const lazyImages = document.querySelectorAll('.lazy-img');
     
-    // Si el navegador soporta IntersectionObserver (modernos)
+    console.log(`📸 ${lazyImages.length} imágenes encontradas`);
+    
+    if (lazyImages.length === 0) {
+        console.warn('⚠️ No hay elementos con class="lazy-img"');
+        return;
+    }
+
     if ('IntersectionObserver' in window) {
-        // Crea un observador para las imágenes
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                // Cuando la imagen entra en la pantalla
                 if (entry.isIntersecting) {
                     const img = entry.target;
-                    // Carga la imagen real
-                    img.src = img.dataset.src;
-                    // Añade clase para efectos de transición
-                    img.classList.add('loaded');
-                    // Deja de observar esta imagen
-                    observer.unobserve(img);
+                    
+                    // Verificación de seguridad extra
+                    if (img && img.tagName === 'IMG' && img.dataset.src) {
+                        console.log('🚀 Cargando imagen:', img.dataset.src);
+                        img.src = img.dataset.src;
+                        img.classList.add('loaded');
+                        observer.unobserve(img);
+                    } else {
+                        console.warn('⚠️ Elemento no es una imagen válida:', img);
+                    }
                 }
             });
-        }, {
-            rootMargin: '0px 0px 100px 0px' // Carga 100px antes de que sea visible
-        });
+        }, { rootMargin: '0px 0px 200px 0px' });
         
-        // Observa cada imagen
-        lazyImages.forEach(img => observer.observe(img));
-    } 
-    // Fallback para navegadores antiguos
-    else {
         lazyImages.forEach(img => {
-            img.src = img.dataset.src;
-            img.classList.add('loaded');
+            if (img && img.tagName === 'IMG') {
+                observer.observe(img);
+            } else {
+                console.warn('⚠️ Elemento con clase lazy-img no es una imagen:', img);
+            }
+        });
+    } else {
+        // Fallback para navegadores antiguos
+        lazyImages.forEach(img => {
+            if (img && img.tagName === 'IMG' && img.dataset.src) {
+                img.src = img.dataset.src;
+                img.classList.add('loaded');
+            }
         });
     }
 }
@@ -122,12 +136,24 @@ function initFormValidation() {
 }
 
 // ==================================
-// INICIALIZACIÓN AL CARGAR LA PÁGINA
+// INICIALIZACIÓN SEGURA
 // ==================================
-document.addEventListener('DOMContentLoaded', function() {
-    initLazyLoading();      // Para todas las páginas con imágenes lazy
-    initWhatsAppButton();   // Para todas las páginas con el botón
-    initFormValidation();   // Solo para la página de contacto
-    
-    console.log('Funciones inicializadas correctamente');
-});
+function initializeAll() {
+    console.log('🎯 Inicializando todas las funciones');
+    initLazyLoading();
+    initWhatsAppButton();
+    initFormValidation();
+}
+
+// EJECUCIÓN PRINCIPAL - MÁXIMA SEGURIDAD
+if (document.readyState === 'complete') {
+    console.log('✅ Página ya cargada, iniciando...');
+    initializeAll();
+} else {
+    console.log('⏳ Esperando carga de la página...');
+    window.addEventListener('load', initializeAll);
+    document.addEventListener('DOMContentLoaded', initializeAll);
+}
+
+// Backup por si acaso
+setTimeout(initializeAll, 1000);
