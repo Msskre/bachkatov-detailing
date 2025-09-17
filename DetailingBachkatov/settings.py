@@ -91,7 +91,7 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = []
 
-GS_BUCKET_NAME = os.environ.get('GS_BUCKET_NAME', 'archivos-static')
+GS_BUCKET_NAME = 'archivos-static'
 
 # Credenciales GCS
 if os.path.exists(os.path.join(BASE_DIR, 'key.json')):
