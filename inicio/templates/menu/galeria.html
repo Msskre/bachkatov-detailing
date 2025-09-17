@@ -1,18 +1,34 @@
-{% extends 'menu/base.html' %}
-{% load static %}
-
-{% block title %}Galería - Bachkatov Detailing{% endblock %}
-
-{% block content %}
+{% extends 'menu/base.html' %} {% load static %} {% block title %}Galería -
+Bachkatov Detailing{% endblock %} {% block content %}
 <section class="gallery-page">
-    <h1>Galería</h1>
-    <p>Algunos de nuestros mejores trabajos</p>
+  <h1>Galería</h1>
+  <p>Algunos de nuestros mejores trabajos</p>
 
-    <div class="gallery-grid">
-        <img data-src="{% static 'inicio/img/despues7.jpg' %}" src="" alt="Trabajo 1" class="lazy-img">
-        <img data-src="{% static 'inicio/img/despues3.jpg' %}" src="" alt="Trabajo 2" class="lazy-img">
-        <img data-src="{% static 'inicio/img/despues1.jpg' %}" src="" alt="Trabajo 3" class="lazy-img">
-        <img data-src="{% static 'inicio/img/despues2.jpg' %}" src="" alt="Trabajo 4" class="lazy-img">
-    </div>
+  <div class="gallery-grid">
+    <img
+      data-src="{% static 'img/despues7.jpg' %}"
+      src=""
+      alt="Trabajo 1"
+      class="lazy-img"
+    />
+    <img
+      data-src="{% static 'img/despues3.jpg' %}"
+      src=""
+      alt="Trabajo 2"
+      class="lazy-img"
+    />
+    <img
+      data-src="{% static 'img/despues1.jpg' %}"
+      src=""
+      alt="Trabajo 3"
+      class="lazy-img"
+    />
+    <img
+      data-src="{% static 'img/despues2.jpg' %}"
+      src=""
+      alt="Trabajo 4"
+      class="lazy-img"
+    />
+  </div>
 </section>
 {% endblock %}

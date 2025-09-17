@@ -1,31 +1,42 @@
-{% extends 'menu/base.html' %}
-{% load static %}
-
-{% block title %}Servicios - Bachkatov Detailing{% endblock %}
-
-{% block content %}
+{% extends 'menu/base.html' %} {% load static %} {% block title %}Servicios -
+Bachkatov Detailing{% endblock %} {% block content %}
 <section class="services-page">
-    <div class="services-header">
-        <h1>Nuestros Servicios</h1>
-        <p>Calidad y dedicación en cada detalle</p>
-    </div>
+  <div class="services-header">
+    <h1>Nuestros Servicios</h1>
+    <p>Calidad y dedicación en cada detalle</p>
+  </div>
 
-    <div class="service-cards">
-        <div class="card">
-            <img data-src="{% static 'inicio/img/despues3.jpg' %}" src="" alt="Detailing Interior" class="lazy-img">
-            <h3>Detailing Interior</h3>
-            <p>Limpieza y sanitización completa del interior de tu auto.</p>
-        </div>
-        <div class="card">
-            <img data-src="{% static 'inicio/img/despues6.jpg' %}" src="" alt="Detailing Exterior" class="lazy-img">
-            <h3>Detailing Exterior</h3>
-            <p>Restauramos el brillo y protección de la pintura.</p>
-        </div>
-        <div class="card">
-            <img data-src="{% static 'inicio/img/despues7.jpg' %}" src="" alt="Limpieza de motor" class="lazy-img">
-            <h3>Limpieza de Motor</h3>
-            <p>Tratamiento cuidadoso del motor para mayor durabilidad.</p>
-        </div>
+  <div class="service-cards">
+    <div class="card">
+      <img
+        data-src="{% static 'img/despues3.jpg' %}"
+        src=""
+        alt="Detailing Interior"
+        class="lazy-img"
+      />
+      <h3>Detailing Interior</h3>
+      <p>Limpieza y sanitización completa del interior de tu auto.</p>
     </div>
+    <div class="card">
+      <img
+        data-src="{% static 'img/despues6.jpg' %}"
+        src=""
+        alt="Detailing Exterior"
+        class="lazy-img"
+      />
+      <h3>Detailing Exterior</h3>
+      <p>Restauramos el brillo y protección de la pintura.</p>
+    </div>
+    <div class="card">
+      <img
+        data-src="{% static 'img/despues7.jpg' %}"
+        src=""
+        alt="Limpieza de motor"
+        class="lazy-img"
+      />
+      <h3>Limpieza de Motor</h3>
+      <p>Tratamiento cuidadoso del motor para mayor durabilidad.</p>
+    </div>
+  </div>
 </section>
 {% endblock %}

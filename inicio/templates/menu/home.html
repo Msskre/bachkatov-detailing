@@ -1,37 +1,48 @@
-{% extends 'menu/base.html' %}
-{% load static %}
-
-{% block title %}Inicio - Bachkatov Detailing{% endblock %}
-
-{% block content %}
+{% extends 'menu/base.html' %} {% load static %} {% block title %}Inicio -
+Bachkatov Detailing{% endblock %} {% block content %}
 <!-- Hero -->
 <section class="hero">
-    <div class="hero-content">
-        <h1>Car Wash & Detailing</h1>
-        <p>Detailing premium para tu vehículo a domicilio</p>
-        <a href="{% url 'contacto' %}" class="btn-primary">Reserva ahora</a>
-    </div>
+  <div class="hero-content">
+    <h1>Car Wash & Detailing</h1>
+    <p>Detailing premium para tu vehículo a domicilio</p>
+    <a href="{% url 'contacto' %}" class="btn-primary">Reserva ahora</a>
+  </div>
 </section>
 
 <!-- Servicios destacados -->
 <section class="services-preview">
-    <h2>Nuestros servicios</h2>
-    <div class="service-cards">
-        <div class="card">
-            <img data-src="{% static 'inicio/img/240_izq_atras.jpg' %}" src="" alt="Basico" class="lazy-img">
-            <h3>Lavado básico</h3>
-            <p>Lavado sencillo por dentro y por fuera.</p>
-        </div>
-        <div class="card">
-            <img data-src="{% static 'inicio/img/despues3.jpg' %}" src="" alt="Interior" class="lazy-img">
-            <h3>Detailing interior</h3>
-            <p>Limpieza profunda y desinfección de cada rincón.</p>
-        </div>
-        <div class="card">
-            <img data-src="{% static 'inicio/img/despues7.jpg' %}" src="" alt="Personalizado" class="lazy-img">
-            <h3>Servicio personalizado</h3>
-            <p>Lo que necesite tu vehículo.</p>
-        </div>
+  <h2>Nuestros servicios</h2>
+  <div class="service-cards">
+    <div class="card">
+      <img
+        data-src="{% static 'img/240_izq_atras.jpg' %}"
+        src=""
+        alt="Basico"
+        class="lazy-img"
+      />
+      <h3>Lavado básico</h3>
+      <p>Lavado sencillo por dentro y por fuera.</p>
     </div>
+    <div class="card">
+      <img
+        data-src="{% static 'img/despues3.jpg' %}"
+        src=""
+        alt="Interior"
+        class="lazy-img"
+      />
+      <h3>Detailing interior</h3>
+      <p>Limpieza profunda y desinfección de cada rincón.</p>
+    </div>
+    <div class="card">
+      <img
+        data-src="{% static 'img/despues7.jpg' %}"
+        src=""
+        alt="Personalizado"
+        class="lazy-img"
+      />
+      <h3>Servicio personalizado</h3>
+      <p>Lo que necesite tu vehículo.</p>
+    </div>
+  </div>
 </section>
 {% endblock %}

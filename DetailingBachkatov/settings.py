@@ -26,7 +26,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # para servir estáticos en local
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # sirve estáticos local
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -87,8 +87,8 @@ USE_TZ = True
 # -------------------------
 # STATIC & MEDIA FILES
 # -------------------------
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # destino de collectstatic
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'inicio', 'static')]  # tus archivos locales
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'inicio', 'static')]
 
 GS_BUCKET_NAME = os.environ.get('GS_BUCKET_NAME', 'archivos-static')
 
@@ -104,13 +104,17 @@ elif os.environ.get('GS_CREDENTIALS'):
 else:
     GS_CREDENTIALS = None
 
-# Decidir almacenamiento según entorno
-if not DEBUG or os.environ.get('FORCE_GCS', '').lower() == 'true':
-    # Producción o forzado a GCS
+# -------------------------
+# Decide storage según entorno
+# -------------------------
+USE_GCS = os.environ.get('USE_GCS', 'false').lower() == 'true'
+
+if USE_GCS or not DEBUG:
+    # Subir static y media a GCS
     STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
     DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
     GS_DEFAULT_ACL = 'publicRead'
-    STATIC_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/'
+    STATIC_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/static/'
     MEDIA_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/media/'
 else:
     # Local con WhiteNoise
@@ -132,7 +136,7 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
 if not DEBUG:
-    SECURE_HSTS_SECONDS = 31536000  # 1 año
+    SECURE_HSTS_SECONDS = 31536000
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
 
