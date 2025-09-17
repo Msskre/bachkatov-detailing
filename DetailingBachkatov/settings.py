@@ -98,9 +98,10 @@ if os.path.exists(os.path.join(BASE_DIR, 'key.json')):
         os.path.join(BASE_DIR, 'key.json')
     )
 elif os.environ.get('GS_CREDENTIALS'):
-    GS_CREDENTIALS = service_account.Credentials.from_service_account_info(
-        json.loads(os.environ['GS_CREDENTIALS'])
-    )
+    key_dict = json.loads(os.environ['GS_CREDENTIALS'])
+    # Reemplaza los \n dobles por saltos de línea reales
+    key_dict['private_key'] = key_dict['private_key'].replace('\\n', '\n')
+    GS_CREDENTIALS = service_account.Credentials.from_service_account_info(key_dict)
 else:
     GS_CREDENTIALS = None
 
