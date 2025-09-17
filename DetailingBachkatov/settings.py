@@ -105,6 +105,14 @@ else:
     # Local con Whitenoise
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
+if os.environ.get('FORCE_GCS') == 'True':
+    STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+else:
+    if not DEBUG:
+        STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+    else:
+        STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+        
 # -------------------------
 # Seguridad
 # -------------------------
