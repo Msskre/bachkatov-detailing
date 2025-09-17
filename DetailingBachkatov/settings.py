@@ -91,19 +91,25 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = []
 
-GS_BUCKET_NAME = 'archivos-static'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# Nombre de tu bucket
+GS_BUCKET_NAME = os.environ.get('GS_BUCKET_NAME', 'archivos-static')
+
+# -------------------------
 # Credenciales GCS
+# -------------------------
+GS_CREDENTIALS = None
 if os.path.exists(os.path.join(BASE_DIR, 'key.json')):
+    # Local dev con archivo
     GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
         os.path.join(BASE_DIR, 'key.json')
     )
 elif os.environ.get('GS_CREDENTIALS'):
+    # Render con variable de entorno
     key_dict = json.loads(os.environ['GS_CREDENTIALS'])
     key_dict['private_key'] = key_dict['private_key'].replace('\\n', '\n')
     GS_CREDENTIALS = service_account.Credentials.from_service_account_info(key_dict)
-else:
-    GS_CREDENTIALS = None
 
 # -------------------------
 # Decide storage según entorno
@@ -122,10 +128,6 @@ else:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
     STATIC_URL = '/static/'
     MEDIA_URL = '/media/'
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # -------------------------
 # Seguridad adicional
@@ -151,3 +153,5 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "bachkatov.detailing@gmail.com"
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
