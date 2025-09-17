@@ -87,10 +87,10 @@ if os.path.exists(os.path.join(BASE_DIR, 'key.json')):
     GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
         os.path.join(BASE_DIR, 'key.json')
     )
-elif os.environ.get('GCS_CREDENTIALS'):
+elif os.environ.get('GS_CREDENTIALS'):
     # Producción con variable de entorno
     GS_CREDENTIALS = service_account.Credentials.from_service_account_info(
-        json.loads(os.environ['GCS_CREDENTIALS'])
+        json.loads(os.environ['GS_CREDENTIALS'])
     )
 else:
     GS_CREDENTIALS = None
@@ -112,7 +112,7 @@ else:
         STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
     else:
         STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-        
+
 # -------------------------
 # Seguridad
 # -------------------------
