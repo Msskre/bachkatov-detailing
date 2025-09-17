@@ -5,10 +5,16 @@ from google.oauth2 import service_account
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# -------------------------
+# Seguridad básica
+# -------------------------
 SECRET_KEY = os.environ.get('SECRET_KEY', 'unsafe-default-key')
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 ALLOWED_HOSTS = ['b-detailing.onrender.com', 'localhost', '127.0.0.1']
 
+# -------------------------
+# Apps
+# -------------------------
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -20,7 +26,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # útil para local
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -50,6 +56,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'DetailingBachkatov.wsgi.application'
 
+# -------------------------
+# Database
+# -------------------------
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -57,6 +66,9 @@ DATABASES = {
     }
 }
 
+# -------------------------
+# Password validation
+# -------------------------
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',},
@@ -64,6 +76,9 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
 ]
 
+# -------------------------
+# Internacionalización
+# -------------------------
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
@@ -72,12 +87,12 @@ USE_TZ = True
 # -------------------------
 # STATIC & MEDIA FILES
 # -------------------------
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'inicio/static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # donde collectstatic pone los archivos
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'inicio/static')]  # donde están tus archivos locales
 
 GS_BUCKET_NAME = os.environ.get('GS_BUCKET_NAME', 'archivos-static')
 
-# Credenciales
+# Credenciales GCS
 if os.path.exists(os.path.join(BASE_DIR, 'key.json')):
     GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
         os.path.join(BASE_DIR, 'key.json')
@@ -89,18 +104,20 @@ elif os.environ.get('GS_CREDENTIALS'):
 else:
     GS_CREDENTIALS = None
 
-# URL de los archivos
-STATIC_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/'
-
-# En producción siempre usar GCS
+# Configuración según entorno
 if not DEBUG or os.environ.get('FORCE_GCS') == 'True':
     STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
     DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
     GS_DEFAULT_ACL = 'publicRead'
+    STATIC_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/'
 else:
-    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    STATIC_URL = '/static/'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 # -------------------------
-# Seguridad
+# Seguridad adicional
 # -------------------------
 CSRF_TRUSTED_ORIGINS = ['https://b-detailing.onrender.com']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -121,5 +138,5 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "bachkatov.detailing@gmail.com"
-EMAIL_HOST_PASSWORD = "zled ewvb rzgy pnbr"
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
