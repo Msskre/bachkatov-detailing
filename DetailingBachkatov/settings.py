@@ -75,44 +75,30 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'inicio/static')]
 
-# Configuración por defecto (local)
-STATIC_URL = 'static/'
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+GS_BUCKET_NAME = os.environ.get('GS_BUCKET_NAME', 'archivos-static')
 
-# Configuración para producción con Google Cloud Storage
-GS_BUCKET_NAME = 'archivos-static'
-
+# Credenciales
 if os.path.exists(os.path.join(BASE_DIR, 'key.json')):
-    # Local con archivo
     GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
         os.path.join(BASE_DIR, 'key.json')
     )
 elif os.environ.get('GS_CREDENTIALS'):
-    # Producción con variable de entorno
     GS_CREDENTIALS = service_account.Credentials.from_service_account_info(
         json.loads(os.environ['GS_CREDENTIALS'])
     )
 else:
     GS_CREDENTIALS = None
 
-if not DEBUG:
-    # Usar Google Cloud Storage para estáticos y media en producción
+# URL de los archivos
+STATIC_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/'
+
+# En producción siempre usar GCS
+if not DEBUG or os.environ.get('FORCE_GCS') == 'True':
+    STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
     DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-    STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
     GS_DEFAULT_ACL = 'publicRead'
-    STATIC_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/'
 else:
-    # Local con Whitenoise
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-
-if os.environ.get('FORCE_GCS') == 'True':
-    STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-else:
-    if not DEBUG:
-        STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-    else:
-        STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-
 # -------------------------
 # Seguridad
 # -------------------------
