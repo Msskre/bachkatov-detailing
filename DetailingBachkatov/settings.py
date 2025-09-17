@@ -80,7 +80,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Configuración para producción con Google Cloud Storage
-GS_BUCKET_NAME = 'misproyectos-staticfiles'
+GS_BUCKET_NAME = 'archivos-static'
 
 if os.path.exists(os.path.join(BASE_DIR, 'key.json')):
     # Local con archivo
