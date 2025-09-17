@@ -88,7 +88,7 @@ USE_TZ = True
 # STATIC & MEDIA FILES
 # -------------------------
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'inicio', 'static')]
+STATICFILES_DIRS = []
 
 GS_BUCKET_NAME = os.environ.get('GS_BUCKET_NAME', 'archivos-static')
 
